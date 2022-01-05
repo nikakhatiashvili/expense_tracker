@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.auth.auth.verify.VerificationFragment">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/verification"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/verification"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="188dp"
+        android:text="@string/verificationsa"
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/didnt_recieve_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="19sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    <RelativeLayout-->
+<!--        android:id="@+id/frame_290"-->
+<!--        android:layout_width="187dp"-->
+<!--        android:layout_height="39dp"-->
+<!--        android:layout_marginTop="20dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:background="@drawable/frame"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.071"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/textView3">-->
+
+<!--        <View-->
+<!--            android:id="@+id/ellipse_10"-->
+<!--            android:layout_width="16dp"-->
+<!--            android:layout_height="16dp"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginStart="9dp"-->
+<!--            android:layout_marginLeft="9dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:background="@drawable/eclipse" />-->
+
+
+<!--        <View-->
+<!--            android:id="@+id/ellipse_11"-->
+<!--            android:layout_width="16dp"-->
+<!--            android:layout_height="16dp"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginStart="42dp"-->
+<!--            android:layout_marginLeft="42dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:layout_toEndOf="@+id/ellipse_10"-->
+<!--            android:background="@drawable/eclipse" />-->
+
+<!--        <View-->
+<!--            android:id="@+id/ellipse_12"-->
+<!--            android:layout_width="16dp"-->
+<!--            android:layout_height="16dp"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginStart="75dp"-->
+<!--            android:layout_marginLeft="75dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:layout_marginEnd="142dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:layout_toEndOf="@+id/ellipse_11"-->
+<!--            android:background="@drawable/eclipse" />-->
+
+<!--        <View-->
+<!--            android:id="@+id/ellipse_13"-->
+<!--            android:layout_width="16dp"-->
+<!--            android:layout_height="16dp"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginStart="109dp"-->
+<!--            android:layout_marginLeft="109dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:layout_toEndOf="@+id/ellipse_12"-->
+<!--            android:background="@drawable/eclipse" />-->
+
+<!--        <View-->
+<!--            android:id="@+id/ellipse_14"-->
+<!--            android:layout_width="16dp"-->
+<!--            android:layout_height="16dp"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginStart="138dp"-->
+<!--            android:layout_marginLeft="138dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:background="@drawable/eclipse" />-->
+
+<!--        <View-->
+<!--            android:id="@+id/ellipse_15"-->
+<!--            android:layout_width="16dp"-->
+<!--            android:layout_height="16dp"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_alignParentLeft="true"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginStart="164dp"-->
+<!--            android:layout_marginLeft="164dp"-->
+<!--            android:layout_marginTop="13dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:background="@drawable/eclipse" />-->
+
+<!--    </RelativeLayout>-->
+
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/verify_btn"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/rounded_button"
+        android:text="Back to Login"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/verification" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

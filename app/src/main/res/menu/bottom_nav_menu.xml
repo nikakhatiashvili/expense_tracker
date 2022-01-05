@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home_2_fill_svgrepo_com"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/dashboardFragment"
+        android:icon="@drawable/ic__564525_arrow_load_refresh_reload_icon"
+        android:title="@string/transaction" />
+
+    <item
+        android:id="@+id/plus"
+        android:iconTint="@color/white"
+        android:title="" />
+    <item
+        android:id="@+id/notificationsFragment"
+        android:icon="@drawable/ic__711047141554125674"
+        android:title="crypto" />
+    <item
+        android:id="@+id/profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="@string/prolife" />
+
+</menu>

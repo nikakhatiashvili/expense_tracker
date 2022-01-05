@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="@dimen/cardview_margin"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    app:cardCornerRadius="@dimen/cardview_radius"
+    app:cardElevation="@dimen/cardview_elevation"
+    app:contentPadding="@dimen/cardview_padding"
+    app:cardBackgroundColor="@color/card_view_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/coinsItemMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+<!--        <ImageView-->
+<!--            android:id="@+id/coinsItemImageView"-->
+<!--            android:layout_width="@dimen/cardview_image_width"-->
+<!--            android:layout_height="@dimen/cardview_image_height"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"/>-->
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/TextAppearance.Custom.Default"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="USD" />
+
+
+        <TextView
+            android:id="@+id/commercial_rates"
+            style="@style/TextAppearance.Custom.Default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:ellipsize="end"
+            android:text="commercial rates"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/buy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="28dp"
+            android:text="buy"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/commercial_rates" />
+
+        <TextView
+            android:id="@+id/sell"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="76dp"
+            android:layout_marginTop="20dp"
+            android:text="sell"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buy" />
+
+
+        <TextView
+            android:id="@+id/buy_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/buy"
+            app:layout_constraintTop_toTopOf="@+id/buy"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="0.2414" />
+
+        <TextView
+            android:id="@+id/sell_price"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/sell"
+            app:layout_constraintTop_toTopOf="@+id/sell"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="0.2414" />
+
+
+
+
+
+
+
+
+        <!--        <TextView-->
+<!--            android:id="@+id/coinsItemPriceTextView"-->
+<!--            style="@style/TextAppearance.Custom.H2.Bold"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="12dp"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="16sp"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/coinsItemImageView"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/coinsItemNameTextView"-->
+<!--            tools:text="99879.45" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/coinsItemPriceText"-->
+<!--            style="@style/TextAppearance.Custom.H2.Bold"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="16sp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.672"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/coinsItemPriceTextView"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/coinsItemNameTextView"-->
+<!--            tools:text="99879.45" />-->
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.cardview.widget.CardView>
+

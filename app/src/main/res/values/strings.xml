@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">finale project</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signingup">By signing up, you agree to the Terms of Service and Privacy Policy</string>
+    <string name="verification">Verification</string>
+    <string name="enter_your_verification_code">Enter your Verification Code</string>
+    <string name="verificationsa">We send verification code to your email. You can check your inbox</string>
+    <string name="verify">Verify</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="continue_pass">continue</string>
+    <string name="email_on_the_way">Check your email  and follow the instructions to reset your password</string>
+    <string name="transaction">Transaction</string>
+    <string name="prolife">Prolife</string>
+
+    <string-array name="currency">
+        <item >GEL</item>
+        <item >USD</item>
+        <item >EUR</item>
+        <item >AED</item>
+        <item >AMD</item>
+        <item >AVD</item>
+        <item >AZN</item>
+        <item >BGN</item>
+        <item >CAD</item>
+        <item >CHF</item>
+        <item >CNY</item>
+        <item >CZK</item>
+        <item >DKK</item>
+        <item >GBP</item>
+        <item >ILS</item>
+        <item >JPY</item>
+        <item >NOK</item>
+        <item >PLN</item>
+        <item >QAR</item>
+        <item >SAR</item>
+        <item >SEK</item>
+        <item >TRY</item>
+        <item >UKG</item>
+    </string-array>
+</resources>
