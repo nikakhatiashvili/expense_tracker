@@ -55,5 +55,13 @@ class CryptoFragment : Fragment() {
         viewModel.historicalData.observe(viewLifecycleOwner){
             ChartHelper.displayHistoricalLineChart(binding.lineChart.lineChart, data?.symbol.toString(), it)
         }
+
+        viewModel.isLoading.observe(viewLifecycleOwner){
+            if (it){
+                binding.coinListLoading.visibility = View.VISIBLE
+            }else{
+                binding.coinListLoading.visibility = View.GONE
+            }
+        }
     }
 }

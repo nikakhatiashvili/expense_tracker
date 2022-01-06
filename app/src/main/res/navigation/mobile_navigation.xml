@@ -83,5 +83,18 @@
         android:id="@+id/bottomFragment"
         android:name="com.example.finaleproject.ui.bottomfragment.BottomFragment"
         android:label="fragment_bottom"
-        tools:layout="@layout/fragment_bottom" />
+        tools:layout="@layout/fragment_bottom" >
+        <action
+            android:id="@+id/action_bottomFragment_to_payingFragment2"
+            app:destination="@id/payingFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/payingFragment2"
+        android:name="com.example.finaleproject.ui.expense.income.PayingFragment"
+        android:label="fragment_paying"
+        tools:layout="@layout/fragment_paying" >
+        <action
+            android:id="@+id/action_payingFragment2_to_bottomFragment"
+            app:destination="@id/bottomFragment" />
+    </fragment>
 </navigation>

@@ -5,7 +5,7 @@
     <string name="title_notifications">Notifications</string>
     <string name="password">Password</string>
     <string name="email">Email</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="signingup">By signing up, you agree to the Terms of Service and Privacy Policy</string>
     <string name="verification">Verification</string>
@@ -17,6 +17,7 @@
     <string name="email_on_the_way">Check your email  and follow the instructions to reset your password</string>
     <string name="transaction">Transaction</string>
     <string name="prolife">Prolife</string>
+    <string name="description">description</string>
 
     <string-array name="currency">
         <item >GEL</item>
@@ -43,4 +44,25 @@
         <item >TRY</item>
         <item >UKG</item>
     </string-array>
+
+    <string-array name="category">
+        <item>Income</item>
+        <item>Expense</item>
+    </string-array>
+    <string-array name="expense">
+        <item>Food</item>
+        <item>Shopping</item>
+        <item>Transportation</item>
+        <item>Subscription</item>
+        <item>Rent</item>
+        <item>Health care</item>
+        <item>Education</item>
+    </string-array>
+
+    <string-array name="income">
+        <item>Salary</item>
+        <item>Passive income</item>
+        <item>Gift</item>
+    </string-array>
+
 </resources>

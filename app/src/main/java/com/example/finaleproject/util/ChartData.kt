@@ -30,15 +30,17 @@ object ChartHelper {
             //Set the data set for the line
             val lineDataSet = LineDataSet(chartData.entries, "Closing price for $symbol")
             lineDataSet.setDrawCircles(false)
-            lineDataSet.color = ContextCompat.getColor(lineChart.context, R.color.line_chart_color)
+            lineDataSet.color = ContextCompat.getColor(lineChart.context, R.color.blue)
+
+
             lineDataSet.valueTextColor =
-                ContextCompat.getColor(lineChart.context, R.color.line_chart_text_color)
+                ContextCompat.getColor(lineChart.context, R.color.white)
 
             //x-axis properties
             val xAxis = lineChart.xAxis
             xAxis.granularity = 1f
             xAxis.textColor =
-                ContextCompat.getColor(lineChart.context, R.color.line_chart_text_color)
+                ContextCompat.getColor(lineChart.context, R.color.white)
             xAxis.position = XAxis.XAxisPosition.BOTTOM
             val formatter = object : ValueFormatter() {
                 override fun getAxisLabel(value: Float, axis: AxisBase?): String {
@@ -55,7 +57,7 @@ object ChartHelper {
             val yAxisLeft = lineChart.axisLeft
             yAxisLeft.granularity = 1f
             yAxisLeft.textColor =
-                ContextCompat.getColor(lineChart.context, R.color.line_chart_text_color)
+                ContextCompat.getColor(lineChart.context, R.color.white)
 
             //Set the data for the line chart
             val data = LineData(lineDataSet)
@@ -65,7 +67,7 @@ object ChartHelper {
             //Update the legend for the chart
             val legend = lineChart.legend
             legend.textColor =
-                ContextCompat.getColor(lineChart.context, R.color.line_chart_text_color)
+                ContextCompat.getColor(lineChart.context, R.color.white)
             legend.horizontalAlignment = Legend.LegendHorizontalAlignment.CENTER
 
             //Draw the chart

@@ -13,6 +13,7 @@
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/drawable/ic_email_svgrepo_com.xml" value="0.3769230769230769" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/drawable/ic_exchange_svgrepo_com.xml" value="0.3828125" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/drawable/ic_home_2_fill_svgrepo_com.xml" value="0.3828125" />
+        <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/drawable/ic_logo_usd_svgrepo_com.xml" value="0.3769230769230769" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/drawable/ic_mastercard_svgrepo_com.xml" value="0.3828125" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/drawable/ic_mastercard_svgrepo_com__2_.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/drawable/ic_plus_svgrepo_com.xml" value="0.3769230769230769" />
@@ -28,16 +29,17 @@
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/exchange_item.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_bottom.xml" value="0.33" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_crypto.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_dashboard.xml" value="0.5" />
+        <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_dashboard.xml" value="0.33" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_notifications.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_password.xml" value="0.36666666666666664" />
-        <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_paying.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_paying.xml" value="0.33" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_register.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_reset.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_verification.xml" value="0.33" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/fragment_verify.xml" value="0.33" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/second_textview.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/textview.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/layout/view_line_chart.xml" value="0.27291666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />

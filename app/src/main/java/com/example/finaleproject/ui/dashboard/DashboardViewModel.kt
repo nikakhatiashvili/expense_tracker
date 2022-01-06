@@ -22,14 +22,20 @@ class DashboardViewModel @Inject constructor(private val repository : ExchangeRe
     val characters: LiveData<List<CommercialRates>> get() = _characters
     val official: LiveData<List<OfficialRatesItem>> get() = _official
 
+    protected val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
     private var _money = MutableLiveData<Double>()
     val money: LiveData<Double> get() = _money
 
     fun load(){
         viewModelScope.launch {
+            _isLoading.postValue(true)
             val data = withContext(Dispatchers.IO){
                 repository.getData()
             }
+            _isLoading.postValue(false)
+
             val officialData = withContext(Dispatchers.IO){
                 repository.getOfficialData()
             }

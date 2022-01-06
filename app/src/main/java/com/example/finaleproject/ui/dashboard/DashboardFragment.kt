@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentDashboardBinding
+
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -43,10 +44,15 @@ class DashboardFragment : Fragment() {
 
         dashboardViewModel.characters.observe(viewLifecycleOwner){
             adapter.data = it
+            binding.spinKit.visibility = View.GONE
         }
-        dashboardViewModel.official.observe(viewLifecycleOwner){
-            adapter.officialData = it
+
+        dashboardViewModel.isLoading.observe(viewLifecycleOwner){
+            if (it){
+                binding.spinKit.visibility = View.VISIBLE
+            }
         }
+
         dashboardViewModel.money.observe(viewLifecycleOwner){
             d("blablabla", it.toString())
             if (binding.amountEt.text?.isNotEmpty()!!){

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    tools:viewBindingIgnore="true"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -14,7 +14,7 @@
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-
+    android:background="@color/background"
     android:layout_height="match_parent"
     tools:context=".ui.detailedcrypto.CryptoFragment">
 
@@ -36,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/large_top_margin"
         android:layout_marginTop="8dp"
+        android:textColor="@color/white"
         android:gravity="center"
         android:text="Price chart for 30 days"
         app:layout_constraintBottom_toTopOf="@+id/lineChart"
@@ -50,6 +51,7 @@
         android:layout_height="23dp"
         android:ellipsize="end"
         android:gravity="start"
+        android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:text="Apple Inc" />
@@ -59,7 +61,8 @@
         style="@style/TextAppearance.Custom.Default"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/subtitle_text_color"
+
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@id/coinItemNameTextView"
         app:layout_constraintTop_toBottomOf="@id/coinItemNameTextView"
         tools:text="APPL" />
@@ -69,6 +72,7 @@
         style="@style/TextAppearance.Custom.H2.Bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         tools:text="123.45" />
@@ -141,18 +145,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/price" />
-<!-- android:visibility="@{(viewModel.isLoading &amp;&amp; !viewModel.dataError) ? View.GONE : View.VISIBLE}"-->
-<!--    <ProgressBar-->
-<!--        android:id="@+id/coinListLoading"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"-->
-<!--        app:layout_constraintBottom_toBottomOf="@id/lineChart"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@id/lineChart" />-->
 
+    <ProgressBar
+        android:id="@+id/coinListLoading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/lineChart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/lineChart" />
 
+<!--    viewModel.dataError.doOnChange(this) { error ->-->
+<!--    if (error) showToast(getString(R.string.historical_data_error))-->
+<!--    }android:visibility="@{viewModel.isLoading ? View.VISIBLE : View.GONE}"-->
+<!--    android:visibility="@{(viewModel.isLoading &amp;&amp; !viewModel.dataError) ? View.GONE : View.VISIBLE}"-->
 
 
 

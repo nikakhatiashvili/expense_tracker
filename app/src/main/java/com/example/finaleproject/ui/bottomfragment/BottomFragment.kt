@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.finaleproject.R
 
@@ -38,6 +39,9 @@ class BottomFragment : Fragment() {
         val navController = childFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         binding.navView.setupWithNavController(navController.navController)
         binding.navView.menu.getItem(2).isEnabled = false
+        binding.fab.setOnClickListener {
+            findNavController().navigate(R.id.action_bottomFragment_to_payingFragment2)
+        }
     }
 }
 

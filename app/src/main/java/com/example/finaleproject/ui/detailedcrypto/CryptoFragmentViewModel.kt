@@ -24,9 +24,6 @@ class CryptoFragmentViewModel @Inject constructor(private val repository: Detail
     private val _dataError = MutableLiveData<Boolean>()
     val dataError: LiveData<Boolean> = _dataError
 
-    private val _clicked = MutableLiveData<Boolean>()
-    val clicked : LiveData<Boolean> = _clicked
-
     private val _historicalData = MutableLiveData<List<DoubleArray>>()
     val historicalData: LiveData<List<DoubleArray>> = _historicalData
 
@@ -40,7 +37,6 @@ class CryptoFragmentViewModel @Inject constructor(private val repository: Detail
                 when (result) {
                     is Result.Success -> {
                         _historicalData.postValue(result.data.prices)
-//                        _clicked.postValue(false)
                         _dataError.postValue(false)
                     }
                     is Result.Error-> _dataError.postValue(true)

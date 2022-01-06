@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.bottomfragment.BottomFragment">
 
@@ -43,6 +44,7 @@
         android:id="@+id/nav_view"
         android:layout_width="0dp"
         app:labelVisibilityMode="labeled"
+        android:background="@color/background_for_btmnav"
         app:itemIconTint="@drawable/color_change_on_click"
         app:itemTextColor="@drawable/color_change_on_click"
         android:layout_height="70dp"

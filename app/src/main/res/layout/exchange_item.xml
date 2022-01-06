@@ -6,24 +6,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="@dimen/cardview_margin"
     android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="@color/background_item"
     android:clickable="true"
     app:cardCornerRadius="@dimen/cardview_radius"
     app:cardElevation="@dimen/cardview_elevation"
-    app:contentPadding="@dimen/cardview_padding"
-    app:cardBackgroundColor="@color/card_view_background">
+    app:contentPadding="@dimen/cardview_padding">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/coinsItemMainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-<!--        <ImageView-->
-<!--            android:id="@+id/coinsItemImageView"-->
-<!--            android:layout_width="@dimen/cardview_image_width"-->
-<!--            android:layout_height="@dimen/cardview_image_height"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"/>-->
+
 
         <TextView
             android:id="@+id/name"
@@ -32,7 +26,7 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -48,7 +42,7 @@
             android:ellipsize="end"
             android:text="commercial rates"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -60,7 +54,7 @@
             android:layout_marginStart="76dp"
             android:layout_marginTop="28dp"
             android:text="buy"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/commercial_rates" />
@@ -72,7 +66,7 @@
             android:layout_marginStart="76dp"
             android:layout_marginTop="20dp"
             android:text="sell"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/buy" />
@@ -83,7 +77,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buy"
@@ -96,7 +90,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="64dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/sell"

@@ -11,6 +11,5 @@ data class CommercialRates(
     val currency: String?,
     @Json(name = "sell")
     val sell: Double?,
-    var value:Double? = 0.0,
-    var selected: Boolean = false,
+
 )
