@@ -19,6 +19,20 @@
     <string name="prolife">Prolife</string>
     <string name="description">description</string>
 
+    <string name="Shopping">Shopping</string>
+    <string name="Rent">Rent</string>
+    <string name="Education">Education</string>
+    <string name="Gift">Gift</string>
+    <string name="Health_Care">Health care</string>
+    <string name="Transportation">Transportation</string>
+    <string name="Subscription">Subscription</string>
+    <string name="Food">Food</string>
+    <string name="Salary">Salary</string>
+    <string name="Passive_income">Passive income</string>
+    <string name="Income">Income</string>
+    <string name="Expense">Expense</string>
+    <string name="account_balance">Account Balance</string>
+
     <string-array name="currency">
         <item >GEL</item>
         <item >USD</item>
@@ -48,6 +62,8 @@
     <string-array name="category">
         <item>Income</item>
         <item>Expense</item>
+    </string-array>
+    <string-array name="clear">
     </string-array>
     <string-array name="expense">
         <item>Food</item>

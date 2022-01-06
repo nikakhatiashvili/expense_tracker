@@ -52,7 +52,6 @@ class DashboardFragment : Fragment() {
                 binding.spinKit.visibility = View.VISIBLE
             }
         }
-
         dashboardViewModel.money.observe(viewLifecycleOwner){
             d("blablabla", it.toString())
             if (binding.amountEt.text?.isNotEmpty()!!){
@@ -62,9 +61,12 @@ class DashboardFragment : Fragment() {
             }
         }
         setArrayAdapters()
+
     }
 
     private fun setArrayAdapters(){
+        val clear = ArrayAdapter(requireContext(),R.layout.textview,resources.getStringArray(R.array.clear))
+
         val currency = resources.getStringArray(R.array.currency)
         val currencys = ArrayAdapter(requireContext(),R.layout.textview,currency)
         var firstValue = binding.dropdownCurrency.text.toString()
@@ -94,8 +96,6 @@ class DashboardFragment : Fragment() {
                 }
             }
         }
-
-
     }
 
 
