@@ -1,15 +1,9 @@
 package com.example.finaleproject.repo
 
-import android.util.Log
-import android.widget.Toast
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.finaleproject.model.transaction.Transaction
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.*
-import org.w3c.dom.Comment
+import com.google.firebase.database.DatabaseReference
 import javax.inject.Inject
-import com.google.type.LatLng
 
 
 
@@ -22,7 +16,12 @@ class DatabaseRepository @Inject constructor(private val databaseReference: Data
 
     fun getTransaction(): DatabaseReference {
         return   databaseReference.child(firebaseAuth.uid.toString()).child("transactions").ref
-
+    }
+    fun readMoney(): DatabaseReference {
+        return   databaseReference.child(firebaseAuth.uid.toString()).ref
+    }
+    fun addDefaultMoney(){
+        databaseReference.child(firebaseAuth.uid.toString()).child("money").setValue("0")
     }
 
 

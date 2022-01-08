@@ -13,10 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentPayingBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class PayingFragment : Fragment() {
@@ -30,13 +27,12 @@ class PayingFragment : Fragment() {
     var firstValue = "Income"
     var secondValue = "Food"
     var thirdValue = "Salary"
+    private var money:String? = null
+    private val homeViewModel: PayingViewModel by viewModels()
 
-    private val viewModel:PayingViewModel by viewModels()
-    @Inject
-    lateinit var DatabaseReference:DatabaseReference
 
-    @Inject
-    lateinit var firebaseAuth: FirebaseAuth
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,6 +54,11 @@ class PayingFragment : Fragment() {
     }
 
     private fun bind(){
+        homeViewModel.money.observe(viewLifecycleOwner){
+            money = it
+           binding.balance.text = "$".plus(it)
+        }
+        homeViewModel.readMoney()
         val expense = resources.getStringArray(R.array.expense)
         val expenses = ArrayAdapter(requireContext(),R.layout.second_textview,expense)
         val category = resources.getStringArray(R.array.category)
@@ -93,49 +94,23 @@ class PayingFragment : Fragment() {
                     }
                 }
             }
-//        with(binding){
-//            val category = ArrayAdapter(requireContext(),R.layout.second_textview,resources.getStringArray(R.array.category))
-//            val expense = ArrayAdapter(requireContext(),R.layout.second_textview,resources.getStringArray(R.array.expense))
-//            val income = ArrayAdapter(requireContext(),R.layout.second_textview,resources.getStringArray(R.array.income))
-//            firstValue = binding.dropdownCategory.text.toString()
-//            secondValue = binding.dropdownExpense.text.toString()
-//            dropdownCategory.setAdapter(category)
-//
-//            dropdownExpense.isClickable = false
-//            dropdownCategory.onItemClickListener = AdapterView.OnItemClickListener{ adapterView, view, i, l ->
-//                val selected = category.getItem(i)
-//                firstValue = selected.toString()
-//                if (firstValue == categoryes){
-//                    dropdownExpense.isClickable = true
-//                    howMuch.setTextColor(resources.getColor(R.color.text_green))
-//                    dropdownExpense.setAdapter(income)
-//                }else{
-//                    dropdownExpense.setAdapter(expense)
-//                    howMuch.setTextColor(resources.getColor(R.color.text_RED))
-//                }
-//            }
-//            dropdownExpense.onItemClickListener = AdapterView.OnItemClickListener{adapterView, view, i, l ->
-//                selectedIncome = income.getItem(i)
-//                secondValue = selectedIncome!!
-//            }
-//        }
         setListeners()
     }
     private fun setListeners(){
         binding.continueBtn.setOnClickListener {
             val amount = binding.amountEt.text.toString()
             val description = binding.description.editText?.text.toString()
-            if (!amount.isNullOrEmpty() && !description.isNullOrEmpty() && !secondValue.isNullOrEmpty()){
+            if (!amount.isNullOrEmpty() && !description.isNullOrEmpty() && !secondValue.isNullOrEmpty() ){
                 if(binding.spinnerCategoryExpense.isVisible){
                     val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,thirdValue)
-                    viewModel.saveTransaction(transaction)
+                    homeViewModel.saveTransaction(transaction)
                 }else{
                     val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,secondValue)
-                    viewModel.saveTransaction(transaction)
+                    homeViewModel.saveTransaction(transaction)
                 }
             }
         }
-        viewModel.isLoading.observe(viewLifecycleOwner){
+        homeViewModel.isLoading.observe(viewLifecycleOwner){
             if (it){
                 Toast.makeText(context,"transaction saved",Toast.LENGTH_SHORT).show()
                 findNavController().navigate(R.id.action_payingFragment2_to_bottomFragment)

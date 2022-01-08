@@ -1,21 +1,18 @@
 package com.example.finaleproject.ui.auth.auth.register
 
+
 import android.os.Bundle
 import android.text.Html
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.finaleproject.extensions.checkEmail
-import com.example.finaleproject.databinding.FragmentRegisterBinding
-import com.example.finaleproject.ui.home.HomeViewModel
 import android.widget.TextView
 import android.widget.Toast
-
-
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.finaleproject.R
-import com.example.finaleproject.extensions.checkEmail
+import com.example.finaleproject.databinding.FragmentRegisterBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
@@ -26,7 +23,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private val viewModel: RegisterViewModel by viewModels()
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
@@ -49,12 +46,9 @@ class RegisterFragment : Fragment() {
         binding.signUpTxt.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
-        listeners()
     }
 
     private fun listeners(){
-
-
         binding.signUpBtn.setOnClickListener {
             val email = binding.emailEtSignUp.editText?.text.toString()
             val pass = binding.passwordEtSignUp.editText?.text.toString()
@@ -65,6 +59,7 @@ class RegisterFragment : Fragment() {
                         if (task.isSuccessful){
                             val firebaseUser:FirebaseUser = task.result!!.user!!
                             firebaseUser.sendEmailVerification()
+                            viewModel.addMoney()
                             findNavController().navigate(R.id.action_registerFragment_to_verificationFragment)
                         }else{
                             Toast.makeText(activity,task.exception?.message.toString(),Toast.LENGTH_SHORT).show()

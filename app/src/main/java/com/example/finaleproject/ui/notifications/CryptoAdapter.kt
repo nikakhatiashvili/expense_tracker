@@ -4,10 +4,8 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.finaleproject.R
 import com.example.finaleproject.databinding.CryptoItemBinding
 import com.example.finaleproject.listener.ClickListener
 import com.example.finaleproject.model.CryptoItem
@@ -41,7 +39,6 @@ class CryptoAdapter(val listener:ClickListener):RecyclerView.Adapter<CryptoAdapt
 
     inner class ViewHolder(private val binding: CryptoItemBinding):RecyclerView.ViewHolder(binding.root),
         View.OnClickListener{
-
         private lateinit var currentData:CryptoItem
         @SuppressLint("ResourceAsColor")
         fun bind(){
