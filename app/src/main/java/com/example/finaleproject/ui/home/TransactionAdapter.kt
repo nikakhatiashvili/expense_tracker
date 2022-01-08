@@ -26,7 +26,7 @@ class TransactionAdapter:RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
     private val Education = "Education"
     private val Salary = "Salary"
     private val gift = "Gift"
-    private val Passive_Incom = "Passive_income"
+    private val Passive_Incom = "Passive income"
 
 
     var data: List<Transaction> = emptyList()
@@ -59,18 +59,16 @@ class TransactionAdapter:RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
         @RequiresApi(Build.VERSION_CODES.M)
         fun bind() {
             currentData = data[absoluteAdapterPosition]
-
-            setImages(binding.coinsItemImageView,currentData.transaction_Category)
+            setImages(binding.coinsItemImageView,currentData.transaction_Category!!)
             binding.coinsItemDescriptionTXTView.text = currentData.description
             binding.transactionItemNameTextView.text = currentData.transaction_Category
-            setAmount(currentData.amount!!, currentData.category,binding.coinItemPriceTextView)
-
+            setAmount(currentData.amount!!, currentData.category!!,binding.coinItemPriceTextView)
         }
     }
     @RequiresApi(Build.VERSION_CODES.M)
     fun setImages(imageButton: ImageView, category:String){
         with(imageButton){
-            if (category == R.string.Shopping.toString()){
+            if (category == shopping){
                 setImageResource(R.drawable.ic_shopping_bag_svgrepo_com)
                 setBackgroundColor(imageButton.context.getColor(R.color.transaction_yellow))
             }else if (category == Education){

@@ -71,67 +71,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/textInputLayoutWrapper"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            <Spinner
+                android:id="@+id/spinner"
                 android:layout_width="match_parent"
-                app:boxBackgroundColor="@color/fui_transparent"
-                android:layout_height="50dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.034"
+                android:entries="@array/category"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <AutoCompleteTextView
-                    android:id="@+id/dropdown_category"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:inputType="none"
-                    android:maxLines="1"
-                    android:hint="category"
-                    android:textColorHint="@color/white"
-                    android:textSize="15sp"
-                    android:textStyle="bold"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="165dp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/category"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            <Spinner
+                android:id="@+id/spinner_category_income"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                app:boxBackgroundColor="@color/fui_transparent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
                 android:layout_marginTop="25dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginEnd="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.034"
+                android:entries="@array/income"
+                app:layout_constraintBottom_toTopOf="@+id/continue_btn"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textInputLayoutWrapper">
+                app:layout_constraintTop_toBottomOf="@+id/spinner"
+                app:layout_constraintVertical_bias="0.0" />
 
-                <AutoCompleteTextView
-                    android:id="@+id/dropdown_expense"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="#8D7DDDD4"
-                    android:inputType="none"
-                    android:maxLines="1"
-                    android:hint="expense/income"
-                    android:textColorHint="#8D7DDDD4"
-                    android:textSize="14sp"
-                    android:textStyle="bold"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_editor_absoluteY="165dp" />
-
-            </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:id="@+id/spinner_category_expense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="25dp"
+                android:entries="@array/expense"
+                app:layout_constraintBottom_toTopOf="@+id/continue_btn"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/spinner"
+                app:layout_constraintVertical_bias="0.0" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/description"
@@ -139,16 +113,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="40dp"
                 android:layout_marginEnd="25dp"
                 android:hint="@string/description"
                 app:boxCornerRadiusBottomEnd="10dp"
                 app:boxCornerRadiusBottomStart="10dp"
                 app:boxCornerRadiusTopEnd="10dp"
                 app:boxCornerRadiusTopStart="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/category">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"

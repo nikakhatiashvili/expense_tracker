@@ -1,8 +1,8 @@
 package com.example.finaleproject.model.transaction
 
 data class Transaction(
-    val amount:Double?,
-    val category:String,
-    val transaction_Category:String,
-    val description:String,
+    val amount:Double?= null,
+    val category:String?= null,
+    val description:String?= null,
+    val transaction_Category:String?= null,
 )

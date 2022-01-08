@@ -40,14 +40,13 @@ class LoginFragment : Fragment() {
     }
 
     private fun bind(){
-        findNavController().navigate(R.id.action_loginFragment_to_bottomFragment)
-//        binding.signUpTxt.setOnClickListener {
-//            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
-//        }
-//        binding.forgotPass.setOnClickListener {
-//            findNavController().navigate(R.id.action_loginFragment_to_passwordFragment)
-//        }
-//        login()
+        binding.signUpTxt.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
+        binding.forgotPass.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_passwordFragment)
+        }
+        login()
     }
 
     private fun login(){

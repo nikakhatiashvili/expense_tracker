@@ -6,16 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentHomeBinding
-import com.example.finaleproject.model.transaction.Transaction
-
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 
 @AndroidEntryPoint
@@ -42,16 +36,20 @@ class HomeFragment : Fragment() {
     }
 
     private fun bind(){
-        val data = listOf<Transaction>(Transaction(100.0,"Income","Salary","this months salary"),
-                    Transaction(10.0,"Expense","Food","went out to eat"),
-                    Transaction(25.2,"Expense","Shopping","went out for Shopping"),
-                    Transaction(76.5,"Expense","Education","buy course on udemy"))
-
+        homeViewModel.getTransactions()
         binding.coinsItemImageView.setBackgroundColor(resources.getColor(R.color.transaction_green))
         adapter = TransactionAdapter()
-        binding.transactionRecyclerview.layoutManager = LinearLayoutManager(requireContext())
+
+        val linearLayoutManager = LinearLayoutManager(requireContext())
+        linearLayoutManager.reverseLayout = true
+//        linearLayoutManager.stackFromEnd = true
+        binding.transactionRecyclerview.layoutManager = linearLayoutManager
         binding.transactionRecyclerview.adapter = adapter
-        adapter.data = data
+        homeViewModel.crypto.observe(viewLifecycleOwner){
+            adapter.data = it
+        }
+        homeViewModel.getMoney()
+
     }
 
 

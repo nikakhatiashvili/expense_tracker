@@ -13,7 +13,6 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentDashboardBinding
-
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -69,24 +68,29 @@ class DashboardFragment : Fragment() {
 
         val currency = resources.getStringArray(R.array.currency)
         val currencys = ArrayAdapter(requireContext(),R.layout.textview,currency)
-        var firstValue = binding.dropdownCurrency.text.toString()
-        var secondValue = binding.dropdownCurrencyTo.text.toString()
+        var firstValue = "USD"
+        var secondValue = "GEL"
         with(binding){
-            dropdownCurrency.setAdapter(currencys)
-            dropdownCurrencyTo.setAdapter(currencys)
-
-            dropdownCurrency.onItemClickListener = AdapterView.OnItemClickListener{ adapterView, view, position, l ->
-                val selectedCurrency = currencys.getItem(position)
-                firstValue = selectedCurrency.toString()
-                if (!amountEt.text.isNullOrEmpty()){
-                    dashboardViewModel.convertValue(amountEt.text.toString().toDouble(),firstValue,secondValue)
+            spinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    val selected = p0?.getItemAtPosition(p2).toString()
+                     firstValue = selected
+                    if (!amountEt.text.isNullOrEmpty()){
+                        dashboardViewModel.convertValue(amountEt.text.toString().toDouble(),firstValue,secondValue)
+                    }
+                }
+                override fun onNothingSelected(p0: AdapterView<*>?) {
                 }
             }
-            dropdownCurrencyTo.onItemClickListener = AdapterView.OnItemClickListener{adapterView, view, position, l ->
-                val selectedCurrency = currencys.getItem(position)
-                secondValue = selectedCurrency.toString()
-                if (!amountEt.text.isNullOrEmpty()){
-                    dashboardViewModel.convertValue(amountEt.text.toString().toDouble(),firstValue,secondValue)
+            spinnerto.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                    val selected = p0?.getItemAtPosition(p2).toString()
+                    secondValue = selected
+                    if (!amountEt.text.isNullOrEmpty()){
+                        dashboardViewModel.convertValue(amountEt.text.toString().toDouble(),firstValue,secondValue)
+                    }
+                }
+                override fun onNothingSelected(p0: AdapterView<*>?) {
                 }
             }
             amountEt.doAfterTextChanged {
@@ -94,6 +98,12 @@ class DashboardFragment : Fragment() {
                     val amount = amountEt.text.toString().toDouble()
                     dashboardViewModel.convertValue(amount,firstValue,secondValue)
                 }
+            }
+            appCompatButton.setOnClickListener {
+                val spinner1Index = binding.spinner.selectedItemPosition
+                spinner.setSelection(binding.spinnerto.selectedItemPosition);
+                binding.spinnerto.setSelection(spinner1Index);
+
             }
         }
     }

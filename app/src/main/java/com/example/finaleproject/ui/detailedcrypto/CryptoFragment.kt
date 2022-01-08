@@ -2,23 +2,18 @@ package com.example.finaleproject.ui.detailedcrypto
 
 import android.os.Bundle
 import android.util.Log.d
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.fragment.app.setFragmentResultListener
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
 import com.bumptech.glide.Glide
-import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentCryptoBinding
 import com.example.finaleproject.model.CryptoItem
 import com.example.finaleproject.util.ChartHelper
 import com.example.finaleproject.util.UIHelper
 import com.example.finaleproject.util.dollarString
 import dagger.hilt.android.AndroidEntryPoint
-import java.security.CryptoPrimitive
 
 @AndroidEntryPoint
 class CryptoFragment : Fragment() {

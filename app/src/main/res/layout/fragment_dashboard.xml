@@ -27,39 +27,46 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayoutWrapper"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="105dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:hint="Currency"
-        app:boxStrokeWidth="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/currency"
+        android:layout_margin="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <AutoCompleteTextView
-            android:id="@+id/dropdown_currency"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#8D7DDDD4"
-            android:inputType="none"
-            android:maxLines="1"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:text="USD"
-            android:textColorHint="#8D7DDDD4"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="165dp" />
+    <ImageButton
+        android:id="@+id/appCompatButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/rounded_button"
+        android:src="@drawable/ic_exchange_svgrepo_com"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerview"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <AutoCompleteTextView-->
+<!--            android:id="@+id/dropdown_currency"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="#8D7DDDD4"-->
+<!--            android:inputType="none"-->
+<!--            android:maxLines="1"-->
+<!--            android:paddingTop="16dp"-->
+<!--            android:paddingBottom="16dp"-->
+<!--            android:text="USD"-->
+<!--            android:textColorHint="#8D7DDDD4"-->
+<!--            android:textSize="12sp"-->
+<!--            android:textStyle="bold"-->
+<!--            tools:layout_editor_absoluteX="0dp"-->
+<!--            tools:layout_editor_absoluteY="165dp" />-->
+
+
 
     <!--    <View-->
 <!--        android:id="@+id/view"-->
@@ -70,42 +77,14 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/dropdown_currency" />-->
 
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textinput"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-        android:layout_width="105dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="32dp"
-        android:hint="Currency"
-        app:boxStrokeWidth="3dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.032"
+    <Spinner
+        android:id="@+id/spinnerto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:entries="@array/currency"
+        android:layout_margin="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayoutWrapper">
-
-        <AutoCompleteTextView
-            android:id="@+id/dropdown_currency_to"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#8D7DDDD4"
-            android:inputType="none"
-            android:maxLines="1"
-            android:paddingTop="16dp"
-            android:paddingBottom="16dp"
-            android:text="GEL"
-            android:textColorHint="#8D7DDDD4"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="165dp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/amount_et"

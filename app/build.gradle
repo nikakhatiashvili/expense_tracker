@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'androidx.navigation.safeargs.kotlin'
     id 'dagger.hilt.android.plugin'
     id 'kotlin-parcelize'
     id 'com.google.gms.google-services'
@@ -102,6 +103,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth-ktx'
     // Also declare the dependency for the Google Play services library and specify its version
     implementation 'com.google.android.gms:play-services-auth:19.2.0'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
 
     implementation 'androidx.navigation:navigation-ui-ktx:2.0.0'
     implementation platform('com.google.firebase:firebase-bom:28.4.1')
