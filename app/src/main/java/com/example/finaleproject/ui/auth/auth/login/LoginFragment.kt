@@ -46,6 +46,7 @@ class LoginFragment : Fragment() {
         binding.forgotPass.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_passwordFragment)
         }
+        findNavController().navigate(R.id.action_loginFragment_to_bottomFragment)
         login()
     }
 

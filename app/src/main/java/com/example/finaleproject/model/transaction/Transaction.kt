@@ -5,4 +5,5 @@ data class Transaction(
     val category:String?= null,
     val description:String?= null,
     val transaction_Category:String?= null,
+    val time:String?= null
 )

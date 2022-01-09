@@ -63,6 +63,12 @@ class TransactionAdapter:RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
             binding.coinsItemDescriptionTXTView.text = currentData.description
             binding.transactionItemNameTextView.text = currentData.transaction_Category
             setAmount(currentData.amount!!, currentData.category!!,binding.coinItemPriceTextView)
+            if (currentData.time?.substring(0,2)?.toInt()!! > 12){
+                binding.ItemTimeTextView.text = currentData.time.plus("PM")
+            }else{
+                binding.ItemTimeTextView.text = currentData.time.plus("AM")
+            }
+
         }
     }
     @RequiresApi(Build.VERSION_CODES.M)

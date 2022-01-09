@@ -56,11 +56,12 @@ class HomeFragment : Fragment() {
             d("list",it.toString())
             adapter.data = it
         }
+        val time = "04:11"
+        d("rest",time.substring(0,2))
         homeViewModel.money.observe(viewLifecycleOwner){
             binding.coinItemPriceTextView.text = "$".plus(it)
         }
         homeViewModel.readMoney()
-
     }
 
 

@@ -7,13 +7,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.finaleproject.model.transaction.Transaction
 import com.example.finaleproject.repo.DatabaseRepository
-import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -29,22 +27,24 @@ class HomeViewModel @Inject constructor(private val repository: DatabaseReposito
     val mLiveNewTransaction = MutableLiveData<Transaction>()
     fun getTransactions(){
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getTransaction().addChildEventListener(object : ChildEventListener {
-                override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                    val transaction = snapshot.getValue(Transaction::class.java)
-                    listRes.add(transaction as Transaction)
-                }
-                override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {
-                }
-                override fun onChildRemoved(snapshot: DataSnapshot) {
-                }
-                override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {
+            repository.getTransaction().addValueEventListener(object :ValueEventListener{
+                val queryList = mutableListOf<Transaction>()
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()){
+                        for (i in snapshot.children){
+                            val item = i.getValue(Transaction::class.java)
+                            if (item != null){
+                                queryList.add(item)
+                            }
+                        }
+                        _crypto.postValue(queryList)
+                    }
                 }
                 override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
                 }
             })
-           delay(400)
-           _crypto.postValue(listRes)
+
         }
 
     }

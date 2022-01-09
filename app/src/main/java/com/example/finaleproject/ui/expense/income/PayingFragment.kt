@@ -14,6 +14,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentPayingBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
+import java.util.*
 
 @AndroidEntryPoint
 class PayingFragment : Fragment() {
@@ -100,13 +102,19 @@ class PayingFragment : Fragment() {
         binding.continueBtn.setOnClickListener {
             val amount = binding.amountEt.text.toString()
             val description = binding.description.editText?.text.toString()
+            val sdf = SimpleDateFormat("hh:mm")
+            val currentDate = sdf.format(Date())
             if (!amount.isNullOrEmpty() && !description.isNullOrEmpty() && !secondValue.isNullOrEmpty() ){
                 if(binding.spinnerCategoryExpense.isVisible){
-                    val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,thirdValue)
-                    homeViewModel.saveTransaction(transaction)
+                    if(money?.toInt()?.minus(amount?.toInt())!! > 0 || money?.toInt()?.minus(amount?.toInt()) == 0 ){
+                        val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,thirdValue,currentDate.toString())
+                        homeViewModel.saveTransaction(transaction)
+                        homeViewModel.changeMoney(amount,money)
+                    }
                 }else{
-                    val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,secondValue)
+                    val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,secondValue,currentDate.toString())
                     homeViewModel.saveTransaction(transaction)
+                    homeViewModel.increaseMoney(amount,money)
                 }
             }
         }

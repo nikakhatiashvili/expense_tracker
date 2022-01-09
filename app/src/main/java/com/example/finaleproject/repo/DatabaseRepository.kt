@@ -24,6 +24,15 @@ class DatabaseRepository @Inject constructor(private val databaseReference: Data
         databaseReference.child(firebaseAuth.uid.toString()).child("money").setValue("0")
     }
 
+    fun changeMoney(amount: String, money: String?){
+        val newMoney = money?.toInt()?.minus(amount.toInt()).toString()
+        databaseReference.child(firebaseAuth.uid.toString()).child("money").setValue(newMoney)
+    }
+    fun increaseMoney(amount: String, money: String?){
+        val newMoney = money?.toInt()?.plus(amount.toInt())
+        databaseReference.child(firebaseAuth.uid.toString()).child("money").setValue(newMoney)
+    }
+
 
     var listRes: MutableList<Transaction> = ArrayList()
     fun saveTransaction(transaction:Transaction):Boolean{

@@ -95,6 +95,8 @@
         tools:layout="@layout/fragment_paying" >
         <action
             android:id="@+id/action_payingFragment2_to_bottomFragment"
+            app:popUpTo="@+id/payingFragment2"
+            app:popUpToInclusive="true"
             app:destination="@id/bottomFragment" />
     </fragment>
 </navigation>
