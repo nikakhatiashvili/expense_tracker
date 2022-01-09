@@ -22,7 +22,15 @@ class DatabaseRepository @Inject constructor(private val databaseReference: Data
     }
     fun addDefaultMoney(){
         databaseReference.child(firebaseAuth.uid.toString()).child("money").setValue("0")
+
     }
+    fun signOut():FirebaseAuth{
+        return  firebaseAuth
+    }
+    fun resetPass(email:String){
+        firebaseAuth.sendPasswordResetEmail(email)
+    }
+
 
     fun changeMoney(amount: String, money: String?){
         val newMoney = money?.toInt()?.minus(amount.toInt()).toString()

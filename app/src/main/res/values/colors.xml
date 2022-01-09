@@ -7,6 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#E8EAED</color>
+    <color name="reds">#FFE2E4</color>
+    <color name="blacks">#3B3643</color>
     <color name="base_dark">#212325</color>
     <color name="email_color">#F1F1FA</color>
     <color name="button_color">#7F3DFF</color>
@@ -37,6 +39,7 @@
     <color name="red">#FF0000</color>
     <color name="light_red">#FF5E69</color>
     <color name="green">#45FF00</color>
+    <color name="income">#00A86B</color>
     <color name="light_green">#00A86B</color>
     <color name="text_green">#A1DEC8</color>
     <color name="default_text_color">#000000</color>

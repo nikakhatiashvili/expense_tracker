@@ -6,17 +6,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentBottomBinding
+import com.example.finaleproject.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class BottomFragment : Fragment() {
-
+    private val viewModel:HomeViewModel by activityViewModels()
     private var _binding: FragmentBottomBinding? = null
     private var money:String? = null
     private val binding get() = _binding!!
@@ -40,6 +42,11 @@ class BottomFragment : Fragment() {
         binding.navView.menu.getItem(2).isEnabled = false
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_bottomFragment_to_payingFragment2)
+        }
+        viewModel.loggedIn.observe(viewLifecycleOwner){
+            if (!it){
+                findNavController().navigate(R.id.action_bottomFragment_to_loginFragment)
+            }
         }
     }
 }

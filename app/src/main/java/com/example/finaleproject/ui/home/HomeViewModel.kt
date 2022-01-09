@@ -21,8 +21,20 @@ class HomeViewModel @Inject constructor(private val repository: DatabaseReposito
 
     private var _crypto = MutableLiveData<List<Transaction>>()
     val crypto: LiveData<List<Transaction>> get() = _crypto
+
     private var _money = MutableLiveData<String>()
     val money: LiveData<String> get() = _money
+
+    private var _income = MutableLiveData<String>()
+    val income: LiveData<String> get() = _income
+
+    private var _expense = MutableLiveData<String>()
+    val expense: LiveData<String> get() = _expense
+
+    private var _loggedIn = MutableLiveData<Boolean>()
+    val loggedIn: LiveData<Boolean> get() = _loggedIn
+
+
     var listRes: MutableList<Transaction> = ArrayList()
     val mLiveNewTransaction = MutableLiveData<Transaction>()
     fun getTransactions(){
@@ -41,7 +53,7 @@ class HomeViewModel @Inject constructor(private val repository: DatabaseReposito
                     }
                 }
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+
                 }
             })
 
@@ -59,13 +71,24 @@ class HomeViewModel @Inject constructor(private val repository: DatabaseReposito
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    TODO("Not yet implemented")
+
                 }
 
             })
         }
     }
+    fun resetPass(email:String){
+        repository.resetPass(email)
+    }
 
+    fun signOut(){
 
-
+       val data = repository.signOut().signOut()
+        val user = repository.signOut().currentUser?.email
+        if (user != null){
+            _loggedIn.postValue(true)
+        }else{
+            _loggedIn.postValue(false)
+        }
+    }
 }

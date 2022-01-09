@@ -32,5 +32,48 @@
         android:name="com.example.finaleproject.ui.detailedcrypto.CryptoFragment"
         android:label="fragment_crypto"
         tools:layout="@layout/fragment_crypto" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.finaleproject.ui.profile.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_setCodeFragment2"
+            app:destination="@id/setCodeFragment2" />
+        <action
+            android:id="@+id/action_profileFragment_to_resetFragment2"
+            app:destination="@id/resetFragment2" />
+        <action
+            android:id="@+id/action_profileFragment_to_passwordFragment2"
+            app:destination="@id/passwordFragment2" />
+        <action
+            android:id="@+id/action_profileFragment_to_mobile_navigation"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/mobile_navigation" />
+        <action
+            android:id="@+id/action_profileFragment_to_loginFragment2"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/loginFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/setCodeFragment2"
+        android:name="com.example.finaleproject.ui.auth.auth.code.SetCodeFragment"
+        android:label="SetCodeFragment" />
+    <fragment
+        android:id="@+id/resetFragment2"
+        android:name="com.example.finaleproject.ui.auth.auth.reset.ResetFragment"
+        android:label="fragment_reset"
+        tools:layout="@layout/fragment_reset" />
+    <fragment
+        android:id="@+id/passwordFragment2"
+        android:name="com.example.finaleproject.ui.auth.auth.password.PasswordFragment"
+        android:label="fragment_password"
+        tools:layout="@layout/fragment_password" />
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.example.finaleproject.ui.auth.auth.login.LoginFragment"
+        android:label="LoginFragment" />
+
 
 </navigation>

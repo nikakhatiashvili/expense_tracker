@@ -1,5 +1,6 @@
 package com.example.finaleproject.ui.expense.income
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -47,9 +48,11 @@ class PayingFragment : Fragment() {
     }
     private fun checkSpinner(){
         if (firstValue == "Income"){
+            binding.constraintLayout.setBackgroundColor(resources.getColor(R.color.light_green))
             binding.spinnerCategoryExpense.visibility = View.GONE
             binding.spinnerCategoryIncome.visibility = View.VISIBLE
         }else{
+            binding.constraintLayout.setBackgroundColor(resources.getColor(R.color.light_red))
             binding.spinnerCategoryIncome.visibility = View.GONE
             binding.spinnerCategoryExpense.visibility = View.VISIBLE
         }
@@ -98,15 +101,16 @@ class PayingFragment : Fragment() {
             }
         setListeners()
     }
+    @SuppressLint("SimpleDateFormat")
     private fun setListeners(){
         binding.continueBtn.setOnClickListener {
             val amount = binding.amountEt.text.toString()
             val description = binding.description.editText?.text.toString()
-            val sdf = SimpleDateFormat("hh:mm")
+            val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
             val currentDate = sdf.format(Date())
             if (!amount.isNullOrEmpty() && !description.isNullOrEmpty() && !secondValue.isNullOrEmpty() ){
                 if(binding.spinnerCategoryExpense.isVisible){
-                    if(money?.toInt()?.minus(amount?.toInt())!! > 0 || money?.toInt()?.minus(amount?.toInt()) == 0 ){
+                    if(money?.toInt()?.minus(amount.toInt())!! > 0 || money?.toInt()?.minus(amount.toInt()) == 0 ){
                         val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,thirdValue,currentDate.toString())
                         homeViewModel.saveTransaction(transaction)
                         homeViewModel.changeMoney(amount,money)

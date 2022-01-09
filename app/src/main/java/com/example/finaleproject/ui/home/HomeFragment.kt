@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentHomeBinding
+import com.example.finaleproject.model.transaction.Transaction
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -44,9 +44,12 @@ class HomeFragment : Fragment() {
     }
 
     private fun bind(){
-        binding.coinsItemImageView.setBackgroundColor(resources.getColor(R.color.transaction_green))
-        adapter = TransactionAdapter()
 
+        adapter = TransactionAdapter()
+        var money : List<Transaction> = emptyList()
+        var income:Int = 0
+        var expense:Int = 0
+        var counter = 0
         val linearLayoutManager = LinearLayoutManager(requireContext())
         linearLayoutManager.reverseLayout = true
 //        linearLayoutManager.stackFromEnd = true
@@ -54,10 +57,33 @@ class HomeFragment : Fragment() {
         binding.transactionRecyclerview.adapter = adapter
         homeViewModel.crypto.observe(viewLifecycleOwner){
             d("list",it.toString())
+            money = it
+
+            for(i in money){
+                if (i.category == "Income"){
+                    income += i.amount?.toInt()!!
+
+                }else{
+                    expense += i.amount?.toInt()!!
+                }
+                counter += 1
+            }
+            binding.money.text = "$".plus(income.toString())
+            binding.expenseMoney.text = "$".plus(expense.toString())
+            income = 0
+            expense = 0
             adapter.data = it
+            if(adapter.data.isEmpty()){
+                binding.textView18.visibility = View.VISIBLE
+            }else{
+                binding.textView18.visibility = View.GONE
+            }
         }
-        val time = "04:11"
-        d("rest",time.substring(0,2))
+        if(adapter.data.isEmpty()){
+            binding.textView18.visibility = View.VISIBLE
+        }else{
+            binding.textView18.visibility = View.GONE
+        }
         homeViewModel.money.observe(viewLifecycleOwner){
             binding.coinItemPriceTextView.text = "$".plus(it)
         }

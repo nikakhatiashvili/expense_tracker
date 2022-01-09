@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentRegisterBinding
@@ -23,7 +23,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
-    private val viewModel: RegisterViewModel by viewModels()
+    private val viewModel: RegisterViewModel by activityViewModels()
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
 
@@ -46,6 +46,7 @@ class RegisterFragment : Fragment() {
         binding.signUpTxt.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
+        listeners()
     }
 
     private fun listeners(){
@@ -60,7 +61,7 @@ class RegisterFragment : Fragment() {
                             val firebaseUser:FirebaseUser = task.result!!.user!!
                             firebaseUser.sendEmailVerification()
                             viewModel.addMoney()
-                            findNavController().navigate(R.id.action_registerFragment_to_verificationFragment)
+                            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
                         }else{
                             Toast.makeText(activity,task.exception?.message.toString(),Toast.LENGTH_SHORT).show()
                         }

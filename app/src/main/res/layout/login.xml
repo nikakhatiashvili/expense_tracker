@@ -20,6 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_et_login"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -92,6 +93,7 @@
         app:layout_constraintTop_toBottomOf="@+id/password_et_login" />
 
 
+
     <TextView
         android:id="@+id/forgot_pass"
         android:layout_width="wrap_content"
@@ -130,6 +132,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/forgot_pass" />
+
+    <TextView
+        android:id="@+id/login_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Login by code"
+        android:textColor="@color/button_color"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,4 +10,5 @@ class RegisterViewModel @Inject constructor(private val repository: DatabaseRepo
     fun addMoney(){
         repository.addDefaultMoney()
     }
+
 }

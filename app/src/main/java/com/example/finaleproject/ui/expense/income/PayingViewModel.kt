@@ -48,6 +48,7 @@ class PayingViewModel @Inject constructor(private val repository : DatabaseRepos
     fun changeMoney(amount: String, money: String?) {
         repository.changeMoney(amount,money)
     }
+
     fun increaseMoney(amount: String, money: String?) {
         repository.increaseMoney(amount,money)
     }
