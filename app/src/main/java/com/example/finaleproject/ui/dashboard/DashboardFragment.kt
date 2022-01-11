@@ -1,7 +1,6 @@
 package com.example.finaleproject.ui.dashboard
 
 import android.os.Bundle
-import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +9,14 @@ import android.widget.ArrayAdapter
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentDashboardBinding
+import com.example.finaleproject.util.Resource
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class DashboardFragment : Fragment() {
@@ -40,27 +43,29 @@ class DashboardFragment : Fragment() {
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
         dashboardViewModel.load()
-
-        dashboardViewModel.characters.observe(viewLifecycleOwner){
-            adapter.data = it
-            binding.spinKit.visibility = View.GONE
-        }
-
-        dashboardViewModel.isLoading.observe(viewLifecycleOwner){
-            if (it){
-                binding.spinKit.visibility = View.VISIBLE
+        viewLifecycleOwner.lifecycleScope.launch {
+            dashboardViewModel.exchangeResponse.collect {
+                when (it) {
+                    is Resource.Loading -> {
+                        binding.spinKit.visibility = View.VISIBLE
+                    }
+                    is Resource.Success -> {
+                        binding.spinKit.visibility = View.GONE
+                        adapter.data = it.data!!
+                    }
+                }
             }
         }
-        dashboardViewModel.money.observe(viewLifecycleOwner){
-            d("blablabla", it.toString())
-            if (binding.amountEt.text?.isNotEmpty()!!){
-                binding.valueTxt.text = it.toString()
-            }else{
-                binding.valueTxt.text = ""
+        viewLifecycleOwner.lifecycleScope.launch {
+            dashboardViewModel.moneys.collectLatest{
+                if (binding.amountEt.text?.isNotEmpty()!!){
+                    binding.valueTxt.text = it.toString()
+                }else{
+                    binding.valueTxt.text = ""
+                }
             }
         }
         setArrayAdapters()
-
     }
 
     private fun setArrayAdapters(){

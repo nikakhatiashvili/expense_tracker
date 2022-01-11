@@ -4,22 +4,16 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentNotificationsBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.util.*
 
 @AndroidEntryPoint
 class NotificationsFragment : Fragment() {
@@ -53,10 +47,19 @@ class NotificationsFragment : Fragment() {
         }
 
         viewModel.getCrypto()
-        viewModel.crypto.observe(viewLifecycleOwner){
-            adapter.data  = it
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.cryptoFlow.collect{
+                when(it){
+                    is ApiState.Success ->{
+                        adapter.data = it.data
+                        binding.spinKit.visibility = View.GONE
+                    }
+                    is ApiState.Loading ->{
+                        binding.spinKit.visibility = View.VISIBLE
+                    }
+                }
+            }
         }
-
     }
     override fun onDestroyView() {
         super.onDestroyView()

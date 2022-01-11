@@ -50,7 +50,16 @@ class TransactionAdapter:RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: TransactionAdapter.ViewHolder, position: Int) {
         holder.bind()
     }
-    override fun getItemCount() = data.size
+    private val limit = 10
+
+
+    override fun getItemCount(): Int {
+        return if (data.size > limit) {
+            limit
+        } else {
+            data.size
+        }
+    }
 
 
     inner class ViewHolder(private val binding: TransactionItemBinding) :
@@ -63,11 +72,7 @@ class TransactionAdapter:RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
             binding.coinsItemDescriptionTXTView.text = currentData.description
             binding.transactionItemNameTextView.text = currentData.transaction_Category
             setAmount(currentData.amount!!, currentData.category!!,binding.coinItemPriceTextView)
-            if (currentData.time?.substring(0,2)?.toInt()!! > 12){
-                binding.ItemTimeTextView.text = currentData.time.plus("PM")
-            }else{
-                binding.ItemTimeTextView.text = currentData.time.plus("AM")
-            }
+            binding.ItemTimeTextView.text = currentData.time
 
         }
     }

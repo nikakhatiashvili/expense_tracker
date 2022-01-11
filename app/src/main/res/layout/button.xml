@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatButton android:id="@+id/seeMoreBtn"
+    android:background="@drawable/morebtn"
+    android:layout_width="100dp"
+    android:textColor="@color/white"
+    android:text="See more"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android" />

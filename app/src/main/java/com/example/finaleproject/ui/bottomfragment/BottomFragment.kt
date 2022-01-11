@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -14,6 +15,7 @@ import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentBottomBinding
 import com.example.finaleproject.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 
 @AndroidEntryPoint
@@ -43,9 +45,12 @@ class BottomFragment : Fragment() {
         binding.fab.setOnClickListener {
             findNavController().navigate(R.id.action_bottomFragment_to_payingFragment2)
         }
-        viewModel.loggedIn.observe(viewLifecycleOwner){
-            if (!it){
-                findNavController().navigate(R.id.action_bottomFragment_to_loginFragment)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel._loggedIn.collect{
+                if (it){
+                    findNavController().navigate(R.id.action_bottomFragment_to_loginFragment)
+                    viewModel.changeLogged()
+                }
             }
         }
     }

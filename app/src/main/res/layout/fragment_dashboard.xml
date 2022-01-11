@@ -89,7 +89,7 @@
         android:backgroundTint="@color/fui_transparent"
         android:hint="Amount"
         android:inputType="numberDecimal"
-        android:maxLength="7"
+        android:maxLength="5"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"

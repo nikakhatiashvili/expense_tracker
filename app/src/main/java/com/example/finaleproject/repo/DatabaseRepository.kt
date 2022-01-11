@@ -13,7 +13,10 @@ class DatabaseRepository @Inject constructor(private val databaseReference: Data
     lateinit var  transaction :Any
     lateinit var transactions:Transaction
     var done = false
+    fun login():FirebaseAuth{
+     return firebaseAuth
 
+    }
     fun getTransaction(): DatabaseReference {
         return   databaseReference.child(firebaseAuth.uid.toString()).child("transactions").ref
     }

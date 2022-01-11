@@ -6,11 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentProfileBinding
 import com.example.finaleproject.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class ProfileFragment: Fragment() {
@@ -34,7 +36,9 @@ class ProfileFragment: Fragment() {
             findNavController().navigate(R.id.action_profileFragment_to_passwordFragment2)
         }
         binding.logout.setOnClickListener {
-            viewModel.signOut()
+            viewLifecycleOwner.lifecycleScope.launch {
+                viewModel.signOut()
+            }
         }
     }
 }

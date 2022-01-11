@@ -97,6 +97,11 @@ dependencies {
 
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
 
+    //datastore
+
+
+    implementation  "androidx.datastore:datastore-core:1.0.0"
+
     implementation platform('com.google.firebase:firebase-bom:29.0.1')
     // Declare the dependency for the Firebase Authentication library
     // When using the BoM, you don't specify versions in Firebase library dependencies
@@ -113,6 +118,11 @@ dependencies {
 
     // Declare the dependency for the Firebase SDK for Google Analytics
     implementation 'com.google.firebase:firebase-analytics-ktx'
+
+    implementation("androidx.datastore:datastore:1.0.0")
+    implementation("androidx.datastore:datastore-core:1.0.0")
+    implementation 'androidx.datastore:datastore-preferences:1.0.0'
+    implementation("androidx.datastore:datastore-preferences-core:1.0.0")
 
     implementation "com.github.PhilJay:MPAndroidChart:v3.1.0"
     // Declare the dependencies for any other desired Firebase products

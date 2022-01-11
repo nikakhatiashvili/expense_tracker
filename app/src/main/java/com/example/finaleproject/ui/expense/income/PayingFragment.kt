@@ -11,10 +11,12 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentPayingBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -59,9 +61,11 @@ class PayingFragment : Fragment() {
     }
 
     private fun bind(){
-        homeViewModel.money.observe(viewLifecycleOwner){
-            money = it
-           binding.balance.text = "$".plus(it)
+        viewLifecycleOwner.lifecycleScope.launch {
+            homeViewModel.moneys.collect{
+                money = it
+                binding.balance.text = "$".plus(it)
+            }
         }
         homeViewModel.readMoney()
         val expense = resources.getStringArray(R.array.expense)
@@ -112,23 +116,37 @@ class PayingFragment : Fragment() {
                 if(binding.spinnerCategoryExpense.isVisible){
                     if(money?.toInt()?.minus(amount.toInt())!! > 0 || money?.toInt()?.minus(amount.toInt()) == 0 ){
                         val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,thirdValue,currentDate.toString())
-                        homeViewModel.saveTransaction(transaction)
+                        viewLifecycleOwner.lifecycleScope.launch {
+                            homeViewModel.saveTransaction(transaction)
+                        }
                         homeViewModel.changeMoney(amount,money)
                     }
                 }else{
                     val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,secondValue,currentDate.toString())
-                    homeViewModel.saveTransaction(transaction)
+                    viewLifecycleOwner.lifecycleScope.launch {
+                        homeViewModel.saveTransaction(transaction)
+                    }
                     homeViewModel.increaseMoney(amount,money)
                 }
             }
         }
-        homeViewModel.isLoading.observe(viewLifecycleOwner){
-            if (it){
-                Toast.makeText(context,"transaction saved",Toast.LENGTH_SHORT).show()
-                findNavController().navigate(R.id.action_payingFragment2_to_bottomFragment)
-            }else{
-                Toast.makeText(context,"transaction failed",Toast.LENGTH_SHORT).show()
+        viewLifecycleOwner.lifecycleScope.launch {
+            homeViewModel._isLoading.collect{
+                if (it){
+                    Toast.makeText(context,"transaction saved",Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_payingFragment2_to_bottomFragment)
+                }else{
+                    Toast.makeText(context,"transaction failed",Toast.LENGTH_SHORT).show()
+                }
             }
         }
+//        homeViewModel.isLoading.observe(viewLifecycleOwner){
+//            if (it){
+//                Toast.makeText(context,"transaction saved",Toast.LENGTH_SHORT).show()
+//                findNavController().navigate(R.id.action_payingFragment2_to_bottomFragment)
+//            }else{
+//                Toast.makeText(context,"transaction failed",Toast.LENGTH_SHORT).show()
+//            }
+//        }
     }
 }

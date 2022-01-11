@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.finaleproject.repo.CryptoRepository
 import com.example.finaleproject.repo.DetailedCryptoRepo
 import com.example.finaleproject.util.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -23,6 +22,8 @@ class CryptoFragmentViewModel @Inject constructor(private val repository: Detail
 
     private val _dataError = MutableLiveData<Boolean>()
     val dataError: LiveData<Boolean> = _dataError
+
+
 
     private val _historicalData = MutableLiveData<List<DoubleArray>>()
     val historicalData: LiveData<List<DoubleArray>> = _historicalData
