@@ -2,7 +2,6 @@ package com.example.finaleproject.ui.dashboard
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.finaleproject.model.CryptoItem
 import com.example.finaleproject.model.exchange.CommercialRates
 import com.example.finaleproject.repo.ExchangeRepository
 import com.example.finaleproject.util.Resource
@@ -46,10 +45,4 @@ class DashboardViewModel @Inject constructor(private val repository : ExchangeRe
         }
 
     }
-}
-sealed class ApiStates{
-    object Loading : ApiStates()
-    class Failure(val msg:Throwable) : ApiStates()
-    class Success(val data: List<CryptoItem>) : ApiStates()
-    object Empty : ApiStates()
 }

@@ -1,12 +1,12 @@
 package com.example.finaleproject.repo
 
-import com.example.finaleproject.util.ProjectProfileRemoteDataSource
+import com.example.finaleproject.network.CryptoNetwork
 import javax.inject.Inject
 
 class DetailedCryptoRepo @Inject constructor(
-        private val remoteDataSource: ProjectProfileRemoteDataSource
+    private val service: CryptoNetwork
     ) {
 
-        suspend fun historicalPrice(symbol: String, targetCur: String = "usd") =
-            remoteDataSource.historicalPrice(symbol, targetCur)
+        suspend fun historicalPrice(symbol: String, targetCur: String = "usd",days: Int = 30) =
+            service.historicalPrice(symbol, targetCur,days)
 }

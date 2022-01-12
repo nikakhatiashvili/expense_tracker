@@ -5,15 +5,19 @@ import android.util.Log.d
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.example.finaleproject.databinding.FragmentCryptoBinding
 import com.example.finaleproject.model.CryptoItem
 import com.example.finaleproject.util.ChartHelper
+import com.example.finaleproject.util.Resource
 import com.example.finaleproject.util.UIHelper
 import com.example.finaleproject.util.dollarString
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class CryptoFragment : Fragment() {
@@ -47,15 +51,21 @@ class CryptoFragment : Fragment() {
         binding.coinItemSymbolTextView.text = data?.symbol
         binding.coinItemPriceTextView.text = data?.current_price.dollarString()
         UIHelper.showChangePercent(binding.coinItemChangeTextView, data?.price_change_percentage_24h)
-        viewModel.historicalData.observe(viewLifecycleOwner){
-            ChartHelper.displayHistoricalLineChart(binding.lineChart.lineChart, data?.symbol.toString(), it)
-        }
-
-        viewModel.isLoading.observe(viewLifecycleOwner){
-            if (it){
-                binding.coinListLoading.visibility = View.VISIBLE
-            }else{
-                binding.coinListLoading.visibility = View.GONE
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.cryptoHistorical.collect{
+                when(it){
+                    is Resource.Success -> {
+                        ChartHelper.displayHistoricalLineChart(binding.lineChart.lineChart, data?.symbol.toString(), it.data!!)
+                        binding.coinListLoading.visibility = View.GONE
+                    }
+                    is Resource.Error ->{
+                        Toast.makeText(requireContext(),it.errorMessage, Toast.LENGTH_SHORT).show()
+                        binding.coinListLoading.visibility = View.GONE
+                    }
+                    is Resource.Loading ->{
+                        binding.coinListLoading.visibility = View.VISIBLE
+                    }
+                }
             }
         }
     }

@@ -10,14 +10,15 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentRegisterBinding
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
+import com.example.finaleproject.util.Resource
+import com.example.finaleproject.util.UIHelper
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -40,8 +41,10 @@ class RegisterFragment : Fragment() {
         bind()
         return root
     }
-    private fun bind(){
-        val text = "<font color='black'>By signing up, you agree to the </font><font color='purple'>Terms of Service and Privacy Policy!</font>"
+
+    private fun bind() {
+        val text =
+            "<font color='black'>By signing up, you agree to the </font><font color='purple'>Terms of Service and Privacy Policy!</font>"
         binding.bySigning.setText(Html.fromHtml(text), TextView.BufferType.SPANNABLE)
         binding.signUpTxt.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
@@ -49,34 +52,31 @@ class RegisterFragment : Fragment() {
         listeners()
     }
 
-    private fun listeners(){
+    private fun listeners() {
         binding.signUpBtn.setOnClickListener {
             val email = binding.emailEtSignUp.editText?.text.toString()
             val pass = binding.passwordEtSignUp.editText?.text.toString()
             val name = binding.nameEtSignUp.editText?.text.toString()
-            if (checkBox()){
-                if(checkStrings(name, pass, email)){
-                    firebaseAuth.createUserWithEmailAndPassword(email,pass).addOnCompleteListener(OnCompleteListener<AuthResult> { task ->
-                        if (task.isSuccessful){
-                            val firebaseUser:FirebaseUser = task.result!!.user!!
-                            firebaseUser.sendEmailVerification()
-                            viewModel.addMoney()
-                            findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
-                        }else{
-                            Toast.makeText(activity,task.exception?.message.toString(),Toast.LENGTH_SHORT).show()
-                        }
-                    })
+            if (UIHelper.checkStrings(name, pass, email)) {
+                viewModel.register(email,pass)
+            }
+        }
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewModel.registerFlow.collect{
+                when(it){
+                    is Resource.Success -> {
+                        viewModel.addMoney()
+                        findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
+                    }
+                    is Resource.Error ->{
+                        Toast.makeText(requireContext(),it.errorMessage,Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
     }
 
-    private fun checkBox()=binding.checkBox.isChecked
+    private fun checkBox() = binding.checkBox.isChecked
 
-    private fun checkStrings(name:String,pass:String,email:String):Boolean{
-       if(name.isNullOrEmpty() || pass.isNullOrEmpty() || email.isNullOrEmpty()){
-           return false
-       }
-        return true
-    }
+
 }

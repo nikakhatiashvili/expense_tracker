@@ -72,7 +72,7 @@ class DashboardFragment : Fragment() {
         val clear = ArrayAdapter(requireContext(),R.layout.textview,resources.getStringArray(R.array.clear))
 
         val currency = resources.getStringArray(R.array.currency)
-        val currencys = ArrayAdapter(requireContext(),R.layout.textview,currency)
+        ArrayAdapter(requireContext(),R.layout.textview,currency)
         var firstValue = "USD"
         var secondValue = "GEL"
         with(binding){
@@ -106,9 +106,8 @@ class DashboardFragment : Fragment() {
             }
             appCompatButton.setOnClickListener {
                 val spinner1Index = binding.spinner.selectedItemPosition
-                spinner.setSelection(binding.spinnerto.selectedItemPosition);
-                binding.spinnerto.setSelection(spinner1Index);
-
+                spinner.setSelection(binding.spinnerto.selectedItemPosition)
+                binding.spinnerto.setSelection(spinner1Index)
             }
         }
     }
