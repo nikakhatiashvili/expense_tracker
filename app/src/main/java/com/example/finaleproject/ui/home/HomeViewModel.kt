@@ -63,8 +63,10 @@ class HomeViewModel @Inject constructor(private val repository: DatabaseReposito
                     moneys.tryEmit(money.toString())
                     d("money", money.toString())
                 }
+                
                 override fun onCancelled(error: DatabaseError) {
                 }
+
             })
         }
     }

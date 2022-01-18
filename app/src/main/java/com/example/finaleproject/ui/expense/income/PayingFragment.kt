@@ -15,6 +15,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentPayingBinding
+import com.example.finaleproject.util.UIHelper
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
@@ -112,7 +113,7 @@ class PayingFragment : Fragment() {
             val description = binding.description.editText?.text.toString()
             val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
             val currentDate = sdf.format(Date())
-            if (!amount.isNullOrEmpty() && !description.isNullOrEmpty() && !secondValue.isNullOrEmpty() ){
+            if (UIHelper.checkStrings(amount, description,secondValue)){
                 if(binding.spinnerCategoryExpense.isVisible){
                     if(money?.toInt()?.minus(amount.toInt())!! > 0 || money?.toInt()?.minus(amount.toInt()) == 0 ){
                         val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,thirdValue,currentDate.toString())
@@ -140,13 +141,5 @@ class PayingFragment : Fragment() {
                 }
             }
         }
-//        homeViewModel.isLoading.observe(viewLifecycleOwner){
-//            if (it){
-//                Toast.makeText(context,"transaction saved",Toast.LENGTH_SHORT).show()
-//                findNavController().navigate(R.id.action_payingFragment2_to_bottomFragment)
-//            }else{
-//                Toast.makeText(context,"transaction failed",Toast.LENGTH_SHORT).show()
-//            }
-//        }
     }
 }

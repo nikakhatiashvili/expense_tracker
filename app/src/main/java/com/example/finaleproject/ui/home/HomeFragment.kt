@@ -23,9 +23,6 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var adapter:TransactionAdapter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,9 +36,6 @@ class HomeFragment : Fragment() {
         return root
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
 
     private fun bind(){
         homeViewModel.getTransactions()
@@ -51,7 +45,6 @@ class HomeFragment : Fragment() {
         var expense:Int = 0
         var counter = 0
         val linearLayoutManager = LinearLayoutManager(requireContext())
-//        linearLayoutManager.stackFromEnd = true
         binding.transactionRecyclerview.layoutManager = linearLayoutManager
         binding.transactionRecyclerview.adapter = adapter
         viewLifecycleOwner.lifecycleScope.launch {
