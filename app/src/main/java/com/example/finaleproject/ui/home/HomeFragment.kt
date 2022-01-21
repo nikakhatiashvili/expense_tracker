@@ -42,6 +42,7 @@ class HomeFragment : Fragment() {
         adapter = TransactionAdapter()
         var money : List<Transaction> = emptyList()
         var income:Int = 0
+        var incomse:Int = 1
         var expense:Int = 0
         var counter = 0
         val linearLayoutManager = LinearLayoutManager(requireContext())
