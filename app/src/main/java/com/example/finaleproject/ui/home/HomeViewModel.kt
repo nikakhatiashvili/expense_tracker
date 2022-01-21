@@ -24,7 +24,7 @@ class HomeViewModel @Inject constructor(private val repository: DatabaseReposito
     val moneys  = MutableStateFlow<String>("")
 
     val _loggedIn  = MutableStateFlow<Boolean>(false)
-
+    val test= 0
 
 
     suspend fun changeLogged(){
