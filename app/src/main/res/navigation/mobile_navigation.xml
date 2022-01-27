@@ -16,8 +16,6 @@
             app:destination="@id/registerFragment" />
         <action
             android:id="@+id/action_loginFragment_to_passwordFragment"
-            app:popUpTo="@+id/loginFragment"
-            app:popUpToInclusive="true"
             app:destination="@id/passwordFragment" />
         <action
             android:id="@+id/action_loginFragment_to_bottomFragment"

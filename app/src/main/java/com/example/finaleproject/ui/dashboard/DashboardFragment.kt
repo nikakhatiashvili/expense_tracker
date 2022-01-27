@@ -104,11 +104,11 @@ class DashboardFragment : Fragment() {
                     dashboardViewModel.convertValue(amount,firstValue,secondValue)
                 }
             }
-            appCompatButton.setOnClickListener {
-                val spinner1Index = binding.spinner.selectedItemPosition
-                spinner.setSelection(binding.spinnerto.selectedItemPosition)
-                binding.spinnerto.setSelection(spinner1Index)
-            }
+//            appCompatButton.setOnClickListener {
+//                val spinner1Index = binding.spinner.selectedItemPosition
+//                spinner.setSelection(binding.spinnerto.selectedItemPosition)
+//                binding.spinnerto.setSelection(spinner1Index)
+//            }
         }
     }
 

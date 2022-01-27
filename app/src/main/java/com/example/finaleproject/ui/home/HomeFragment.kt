@@ -42,7 +42,7 @@ class HomeFragment : Fragment() {
         adapter = TransactionAdapter()
         var money : List<Transaction> = emptyList()
         var income:Int = 0
-        var incomse:Int = 1
+
         var expense:Int = 0
         var counter = 0
         val linearLayoutManager = LinearLayoutManager(requireContext())
@@ -51,9 +51,6 @@ class HomeFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             homeViewModel.exchangeResponse.collect{
                money = it
-                if (it.size > 10){
-                    binding.seemore.visibility = View.VISIBLE
-                }
                 for(i in money){
                     if (i.category == "Income"){
                         income += i.amount?.toInt()!!

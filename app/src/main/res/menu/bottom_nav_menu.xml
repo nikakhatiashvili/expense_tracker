@@ -9,7 +9,7 @@
     <item
         android:id="@+id/dashboardFragment"
         android:icon="@drawable/ic__564525_arrow_load_refresh_reload_icon"
-        android:title="@string/transaction" />
+        android:title="@string/exchange" />
 
     <item
         android:id="@+id/plus"

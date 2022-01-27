@@ -43,9 +43,9 @@ class RegisterFragment : Fragment() {
     }
 
     private fun bind() {
-        val text =
-            "<font color='black'>By signing up, you agree to the </font><font color='purple'>Terms of Service and Privacy Policy!</font>"
-        binding.bySigning.setText(Html.fromHtml(text), TextView.BufferType.SPANNABLE)
+//        val text =
+//            "<font color='black'>By signing up, you agree to the </font><font color='purple'>Terms of Service and Privacy Policy!</font>"
+//        binding.bySigning.setText(Html.fromHtml(text), TextView.BufferType.SPANNABLE)
         binding.signUpTxt.setOnClickListener {
             findNavController().navigate(R.id.action_registerFragment_to_loginFragment)
         }
@@ -76,7 +76,7 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    private fun checkBox() = binding.checkBox.isChecked
+//    private fun checkBox() = binding.checkBox.isChecked
 
 
 }

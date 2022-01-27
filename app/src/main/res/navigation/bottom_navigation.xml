@@ -55,6 +55,9 @@
             app:popUpTo="@id/profileFragment"
             app:popUpToInclusive="true"
             app:destination="@id/loginFragment2" />
+        <action
+            android:id="@+id/action_profileFragment_to_transactionsFragment"
+            app:destination="@id/transactionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/setCodeFragment2"
@@ -74,6 +77,14 @@
         android:id="@+id/loginFragment2"
         android:name="com.example.finaleproject.ui.auth.auth.login.LoginFragment"
         android:label="LoginFragment" />
+    <fragment
+        android:id="@+id/transactionsFragment"
+        android:name="com.example.finaleproject.ui.transactions.TransactionsFragment"
+        android:label="TransactionsFragment" >
+        <action
+            android:id="@+id/action_transactionsFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
 
 
 </navigation>

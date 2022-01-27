@@ -40,5 +40,8 @@ class ProfileFragment: Fragment() {
                 viewModel.signOut()
             }
         }
+        binding.appCompatButton.setOnClickListener {
+            findNavController().navigate(R.id.action_profileFragment_to_transactionsFragment)
+        }
     }
 }

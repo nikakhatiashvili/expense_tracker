@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/white"
+    android:background="@color/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,7 +12,7 @@
         android:layout_height="22dp"
         android:layout_marginTop="54dp"
         android:text="Login"
-        android:textColor="@color/base_dark"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,11 +28,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
         android:hint="@string/email"
+        android:textColorHint="@color/white"
         android:inputType="textEmailAddress"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
         app:boxCornerRadiusTopStart="10dp"
+        app:hintTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -40,6 +42,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             android:maxEms="1"
             android:maxLines="1"
             android:singleLine="true" />
@@ -58,7 +61,7 @@
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
         app:boxCornerRadiusTopEnd="10dp"
-
+        android:textColorHint="@color/white"
         app:boxCornerRadiusTopStart="10dp"
         app:endIconMode="password_toggle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,7 +73,7 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:maxEms="1"
-
+            android:textColor="@color/white"
             android:maxLines="1"
             android:singleLine="true" />
 
@@ -113,6 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:text="Don't have an account yet?"
+        android:textColor="@color/white"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.429"
