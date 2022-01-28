@@ -15,7 +15,7 @@ Screenshots
 ![Screenshot 2022-01-26 121621](https://user-images.githubusercontent.com/75098057/151131261-133ca57d-0fb1-4a1a-bff6-9cb0723fe39e.png)
 
 
-Architecture MVVM (Model - ViewModel - View) is the design pattern used for making this app. MVVM provides a clear separation of concern and has great support in Android SDK in the form of Architecture Components.
+Architecture MVVM  is the design pattern used for making this app. MVVM provides a clear separation of concern and has great support in Android SDK in the form of Architecture Components.
 
 Libraries Used
 
@@ -23,9 +23,9 @@ Architecture - A collection of libraries that help you design robust, testable, 
 
   ViewModel - Store UI-related data that isn't destroyed on app rotations. Easily schedule asynchronous tasks for optimal execution.
 	
-  Dagger - For Dependeny Injection
+  Hilt - For Dependeny Injection
 	
-  Navigation - Handle everything needed for in-app navigation.
+ Jetpack Navigation - Handle everything needed for in-app navigation.
 	
 Third party
 
