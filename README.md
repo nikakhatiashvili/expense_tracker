@@ -10,8 +10,8 @@ Screenshots
 ![Screenshot 2022-01-27 183636](https://user-images.githubusercontent.com/75098057/151381321-613975a4-1c9f-4742-9f7e-33c76448e8db.png)
 ![Screenshot 2022-01-27 184338](https://user-images.githubusercontent.com/75098057/151381516-17e8a691-eaf7-464d-8987-02e45a0076f7.png)
 ![Screenshot 2022-01-27 183948](https://user-images.githubusercontent.com/75098057/151381637-c9a99a2c-11a1-4d4c-9b81-0918682e6bd2.png)
-![Screenshot 2022-01-27 190024](https://user-images.githubusercontent.com/75098057/151384797-6bb0f6c8-b160-447d-b8f0-3496df3ccb6b.png)
-
+![Screenshot 2022-01-30 232528](https://user-images.githubusercontent.com/75098057/151715206-cc9a8744-2fda-47f2-bed9-a3ff870ed1a4.png)
+![Screenshot 2022-01-30 235220](https://user-images.githubusercontent.com/75098057/151715245-a565c375-764c-4111-ad59-bbe4dbd9ebf6.png)
 ![Screenshot 2022-01-26 121621](https://user-images.githubusercontent.com/75098057/151131261-133ca57d-0fb1-4a1a-bff6-9cb0723fe39e.png)
 
 
@@ -27,6 +27,7 @@ Architecture - A collection of libraries that help you design robust, testable, 
 	
  Jetpack Navigation - Handle everything needed for in-app navigation.
 	
+
 Third party
 
   Glide for image loading
