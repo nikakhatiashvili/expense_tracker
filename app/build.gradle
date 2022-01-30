@@ -100,7 +100,7 @@ dependencies {
     //datastore
 
 
-
+    def anychart = "1.1.2"
 
     implementation platform('com.google.firebase:firebase-bom:29.0.1')
     // Declare the dependency for the Firebase Authentication library
@@ -120,9 +120,10 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
 
+
     testImplementation 'com.google.truth:truth:1.1.2'
 
-
+//    implementation "com.github.AnyChart:AnyChart-Android:$anychart"
 
     implementation "com.github.PhilJay:MPAndroidChart:v3.1.0"
     // Declare the dependencies for any other desired Firebase products

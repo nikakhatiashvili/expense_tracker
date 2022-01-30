@@ -3,6 +3,8 @@ package com.example.finaleproject.ui.home
 import android.util.Log.d
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.finaleproject.model.pieChartExpense
+import com.example.finaleproject.model.pieChartIncome
 import com.example.finaleproject.model.transaction.Transaction
 import com.example.finaleproject.repo.DatabaseRepository
 import com.google.firebase.database.DataSnapshot
@@ -19,7 +21,9 @@ import javax.inject.Inject
 class HomeViewModel @Inject constructor(private val repository: DatabaseRepository) : ViewModel() {
 
 
-    val exchangeResponse= MutableStateFlow<List<Transaction>>(emptyList())
+    val exchangeResponse = MutableStateFlow<List<Transaction>>(emptyList())
+    val expenseResponse = MutableStateFlow<List<pieChartExpense>>(emptyList())
+    val incomeResponse = MutableStateFlow<List<pieChartIncome>>(emptyList())
 
     val moneys  = MutableStateFlow<String>("")
 
@@ -53,6 +57,46 @@ class HomeViewModel @Inject constructor(private val repository: DatabaseReposito
 
         }
 
+    }
+    fun getExpense(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getExpense().addValueEventListener(object :ValueEventListener{
+                val queryList = mutableListOf<pieChartExpense>()
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()){
+                        for (i in snapshot.children){
+                            val item = i.getValue(pieChartExpense::class.java)
+                            if (item != null){
+                                queryList.add(item)
+                            }
+                        }
+                        expenseResponse.tryEmit(queryList)
+                    }
+                }
+                override fun onCancelled(error: DatabaseError) {
+                }
+            })
+        }
+    }
+    fun getIncome(){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getIncome().addValueEventListener(object :ValueEventListener{
+                val queryList = mutableListOf<pieChartIncome>()
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if (snapshot.exists()){
+                        for (i in snapshot.children){
+                            val item = i.getValue(pieChartIncome::class.java)
+                            if (item != null){
+                                queryList.add(item)
+                            }
+                        }
+                        incomeResponse.tryEmit(queryList)
+                    }
+                }
+                override fun onCancelled(error: DatabaseError) {
+                }
+            })
+        }
     }
     fun readMoney(){
         viewModelScope.launch(Dispatchers.IO) {

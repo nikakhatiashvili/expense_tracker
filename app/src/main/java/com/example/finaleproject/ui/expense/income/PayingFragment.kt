@@ -15,6 +15,8 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentPayingBinding
+import com.example.finaleproject.model.pieChartExpense
+import com.example.finaleproject.model.pieChartIncome
 import com.example.finaleproject.util.UIHelper
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -117,8 +119,11 @@ class PayingFragment : Fragment() {
                 if(binding.spinnerCategoryExpense.isVisible){
                     if(money?.toInt()?.minus(amount.toInt())!! > 0 || money?.toInt()?.minus(amount.toInt()) == 0 ){
                         val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,thirdValue,currentDate.toString())
+                        val expense = pieChartExpense(amount.toInt(),thirdValue)
                         viewLifecycleOwner.lifecycleScope.launch {
                             homeViewModel.saveTransaction(transaction)
+                            homeViewModel.saveExpense(expense)
+
                         }
                         homeViewModel.changeMoney(amount,money)
                     }
@@ -126,6 +131,8 @@ class PayingFragment : Fragment() {
                     val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,secondValue,currentDate.toString())
                     viewLifecycleOwner.lifecycleScope.launch {
                         homeViewModel.saveTransaction(transaction)
+                        val income = pieChartIncome(amount.toInt(),secondValue)
+                        homeViewModel.saveIncome(income)
                     }
                     homeViewModel.increaseMoney(amount,money)
                 }

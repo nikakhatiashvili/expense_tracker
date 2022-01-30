@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/GeoComputers/AppData/Local/Android/Sdk/platforms/android-31/data/res/drawable/btn_default.xml" value="0.36944444444444446" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/drawable/ic_go_back_arrow_svgrepo_com.xml" value="0.3769230769230769" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/create_card.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/exchange_item.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/expense_fragment.xml" value="0.33" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/fragment_crypto.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/fragment_dashboard.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
@@ -15,6 +17,7 @@
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/fragment_reset.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/fragment_verification.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/fragment_verify.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/income_fragment.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/login_code.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/second_textview.xml" value="0.36666666666666664" />
@@ -24,6 +27,8 @@
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/transactions.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/layout/view_line_chart.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.36944444444444446" />
+        <entry key="..\:/Users/GeoComputers/Desktop/final-project/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.36944444444444446" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/drawable-v24/color_change_on_click.xml" value="0.3828125" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/drawable-v24/ic_mastercard_svgrepo_com__2_.xml" value="0.2598958333333333" />
         <entry key="..\:/Users/GeoComputers/Desktop/finaleproject/app/src/main/res/drawable/code_btn.xml" value="0.3769230769230769" />

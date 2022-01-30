@@ -3,6 +3,8 @@ package com.example.finaleproject.ui.expense.income
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.finaleproject.model.pieChartExpense
+import com.example.finaleproject.model.pieChartIncome
 import com.example.finaleproject.model.transaction.Transaction
 import com.example.finaleproject.repo.DatabaseRepository
 import com.google.firebase.database.DataSnapshot
@@ -27,6 +29,12 @@ class PayingViewModel @Inject constructor(private val repository : DatabaseRepos
 
     suspend fun saveTransaction(transaction: Transaction){
         _isLoading.emit(repository.saveTransaction(transaction))
+    }
+    suspend fun saveExpense(expense: pieChartExpense){
+        repository.saveExpense(expense)
+    }
+    suspend fun saveIncome(expense: pieChartIncome){
+        repository.saveIncome(expense)
     }
 
     fun readMoney(){

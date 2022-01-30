@@ -1,5 +1,7 @@
 package com.example.finaleproject.repo
 
+import com.example.finaleproject.model.pieChartExpense
+import com.example.finaleproject.model.pieChartIncome
 import com.example.finaleproject.model.transaction.Transaction
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -19,6 +21,12 @@ class DatabaseRepository @Inject constructor(private val databaseReference: Data
     }
     fun getTransaction(): DatabaseReference {
         return   databaseReference.child(firebaseAuth.uid.toString()).child("transactions").ref
+    }
+    fun getExpense(): DatabaseReference {
+        return   databaseReference.child(firebaseAuth.uid.toString()).child("expense").ref
+    }
+    fun getIncome(): DatabaseReference {
+        return   databaseReference.child(firebaseAuth.uid.toString()).child("income").ref
     }
     fun readMoney(): DatabaseReference {
         return   databaseReference.child(firebaseAuth.uid.toString()).ref
@@ -48,8 +56,16 @@ class DatabaseRepository @Inject constructor(private val databaseReference: Data
         databaseReference.child(firebaseAuth.uid.toString()).child("money").setValue(newMoney)
     }
 
+    fun saveExpense(expense:pieChartExpense){
+        val databaseRef = databaseReference.child(firebaseAuth.uid.toString()).child("expense")
+        databaseRef.push().setValue(expense)
+    }
+    fun saveIncome(income: pieChartIncome){
+        val databaseRef = databaseReference.child(firebaseAuth.uid.toString()).child("income")
+        databaseRef.push().setValue(income)
+    }
 
-    var listRes: MutableList<Transaction> = ArrayList()
+
     fun saveTransaction(transaction:Transaction):Boolean{
         val databaseRef = databaseReference.child(firebaseAuth.uid.toString()).child("transactions")
         databaseRef.push().setValue(transaction)
