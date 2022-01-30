@@ -34,6 +34,8 @@ class HomeViewModel @Inject constructor(private val repository: DatabaseReposito
     suspend fun changeLogged(){
         _loggedIn.emit(false)
         exchangeResponse.emit(emptyList())
+        expenseResponse.emit(emptyList())
+        incomeResponse.emit(emptyList())
     }
 
     fun getTransactions(){

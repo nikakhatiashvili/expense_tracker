@@ -38,7 +38,13 @@ class ExpenseFragment : Fragment() {
     val RentStr = "Rent"
     val HealthStr = "Health care"
     val EducationStr = "Education"
-
+    var Food: Int = 0
+    var Shopping: Int = 0
+    var Transportation: Int = 0
+    var Subscription: Int = 0
+    var Rent: Int = 0
+    var Health: Int = 0
+    var Education: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -62,13 +68,7 @@ class ExpenseFragment : Fragment() {
         }
     }
     private fun setPie(expense: List<pieChartExpense>){
-        var Food: Int = 0
-        var Shopping: Int = 0
-        var Transportation: Int = 0
-        var Subscription: Int = 0
-        var Rent: Int = 0
-        var Health: Int = 0
-        var Education: Int = 0
+
         for (i in expense) {
             if (i.category == foodStr) {
                 Food += i.money!!
@@ -86,7 +86,8 @@ class ExpenseFragment : Fragment() {
                 Education += i.money!!
             }
         }
-        setChart(Food.toFloat(),Shopping.toFloat(),Transportation.toFloat(),Subscription.toFloat(),Rent.toFloat(),Health.toFloat(),Education.toFloat())
+        setChart(Food.toFloat(),Shopping.toFloat(),Transportation.toFloat(),
+            Subscription.toFloat(),Rent.toFloat(),Health.toFloat(),Education.toFloat())
     }
     private fun setChart(food:Float,shop:Float,transport:Float,sub:Float,rent:Float,health:Float,education:Float){
         val expenses = listOf<String>("Food","Shopping","Transportation","Subscription","Rent","Health","Education")
@@ -98,23 +99,37 @@ class ExpenseFragment : Fragment() {
         }
         val entries: MutableList<PieEntry> = ArrayList()
         val pieChart = binding.piechart
-        if(food.toInt() == 0)
-        entries.add(PieEntry(food, "food"))
-        entries.add(PieEntry(shop, "shop"))
-        entries.add(PieEntry(transport, "transport"))
-        entries.add(PieEntry(sub, "Subscription"))
-        entries.add(PieEntry(rent, "Rent"))
-        entries.add(PieEntry(health, "Health"))
-        entries.add(PieEntry(education, "Education"))
 
-        val colors= listOf<Int>(resources.getColor(R.color.light_red),
-                resources.getColor(R.color.transaction_yellow),
-                resources.getColor(R.color.transaction_blue),
-                resources.getColor(R.color.transaction_pink) ,
-                resources.getColor(R.color.green),
-                resources.getColor(R.color.transaction_rent),
-                resources.getColor(R.color.black))
-        val piedataset = PieDataSet(entries,"transaction chart")
+        val colors: MutableList<Int> = ArrayList()
+        if (food.toInt() > 0){
+            entries.add(PieEntry(food, "food"))
+            colors.add(        resources.getColor(R.color.light_red))
+        }
+        if (shop.toInt() > 0){
+            entries.add(PieEntry(shop, "shop"))
+            colors.add(resources.getColor(R.color.transaction_yellow))
+        }
+        if (transport.toInt() > 0) {
+            entries.add(PieEntry(transport, "transport"))
+            colors.add(resources.getColor(R.color.transaction_blue))
+        }
+        if (sub.toInt() > 0){
+            entries.add(PieEntry(sub, "Subscription"))
+            colors.add(resources.getColor(R.color.transaction_pink))
+        }
+        if (rent.toInt() > 0){
+            entries.add(PieEntry(rent, "Rent"))
+            colors.add(resources.getColor(R.color.green))
+        }
+        if (health.toInt() > 0){
+            entries.add(PieEntry(health, "Health"))
+            colors.add(resources.getColor(R.color.transaction_rent))
+        }
+        if (education.toInt() > 0){
+            entries.add(PieEntry(education, "Education"))
+            colors.add(resources.getColor(R.color.black))
+        }
+        val piedataset = PieDataSet(entries,"expense chart")
         val data = PieData(piedataset)
         piedataset.colors = colors
         piedataset.sliceSpace=3f

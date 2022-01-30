@@ -38,6 +38,8 @@
     <string name="your_transactions_will_show_up_here">your transactions will show up here</string>
     <string name="exchange">Exchange</string>
     <string name="your_transactions">Your transactions</string>
+    <string name="expenses_chart">Expenses chart</string>
+    <string name="income_chart">income chart</string>
 
     <string-array name="currency">
         <item >GEL</item>

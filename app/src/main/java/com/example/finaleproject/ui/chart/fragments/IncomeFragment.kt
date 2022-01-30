@@ -27,6 +27,9 @@ class IncomeFragment:Fragment() {
     val salaryString = "Salary"
     val passiveString = "Passive income"
     val Gift = "Gift"
+    var salary: Int = 0
+    var passive: Int = 0
+    var gift: Int = 0
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -48,9 +51,6 @@ class IncomeFragment:Fragment() {
         }
     }
     private fun setPie(income:List<pieChartIncome>){
-        var salary: Int = 0
-        var passive: Int = 0
-        var gift: Int = 0
         for (i in income) {
             if (i.category == salaryString) {
                 salary += i.money!!
