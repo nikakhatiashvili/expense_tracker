@@ -19,7 +19,7 @@ Architecture MVVM  is the design pattern used for making this app. MVVM provides
 
 Libraries Used
 
-Architecture - A collection of libraries that help you design robust, testable, and maintainable apps.
+Architecture - A collection of libraries that help you design robust, testable, and maintainable apps
 
   ViewModel - Store UI-related data that isn't destroyed on app rotations. Easily schedule asynchronous tasks for optimal execution.
 	
