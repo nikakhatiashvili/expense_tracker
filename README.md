@@ -10,8 +10,8 @@ Screenshots
 ![Screenshot 2022-01-27 183636](https://user-images.githubusercontent.com/75098057/151381321-613975a4-1c9f-4742-9f7e-33c76448e8db.png)
 ![Screenshot 2022-01-27 184338](https://user-images.githubusercontent.com/75098057/151381516-17e8a691-eaf7-464d-8987-02e45a0076f7.png)
 ![Screenshot 2022-01-27 183948](https://user-images.githubusercontent.com/75098057/151381637-c9a99a2c-11a1-4d4c-9b81-0918682e6bd2.png)
-![Screenshot 2022-01-30 232528](https://user-images.githubusercontent.com/75098057/151715206-cc9a8744-2fda-47f2-bed9-a3ff870ed1a4.png)
-![Screenshot 2022-01-30 235220](https://user-images.githubusercontent.com/75098057/151715245-a565c375-764c-4111-ad59-bbe4dbd9ebf6.png)
+![Screenshot (206)](https://user-images.githubusercontent.com/75098057/151771401-b077c052-4dec-4c46-9d89-535705e1f3b4.png)
+![Screenshot (208)](https://user-images.githubusercontent.com/75098057/151771711-004a7db7-9d5f-4d14-bf59-0bf5f2cedbf3.png)
 ![Screenshot 2022-01-26 121621](https://user-images.githubusercontent.com/75098057/151131261-133ca57d-0fb1-4a1a-bff6-9cb0723fe39e.png)
 
 
@@ -32,7 +32,7 @@ Third party
 
   Glide for image loading
 	
-	Firebase for authentication and storing user transactions
+  Firebase for authentication and storing user transactions
 	
   Kotlin Coroutines for managing background threads with simplified code and reducing needs for callbacks 
 	
