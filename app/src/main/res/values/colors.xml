@@ -18,10 +18,13 @@
     <color name="text_blue">#A1CCFD</color>
     <color name="transaction_item">#FCFCFC</color>
     <color name="transaction_yellow">#FCEED4</color>
+    <color name="transaction_darkyellow">#AA6E00</color>
     <color name="transaction_pink">#EEE5FF</color>
+    <color name="transaction_pinks">#5F3CA1</color>
     <color name="transaction_red">#FDD5D7</color>
     <color name="transaction_green">#CFFAEA</color>
     <color name="transaction_blue">#BDDCFF</color>
+    <color name="transaction_darkblue">#0062D1</color>
     <color name="transaction_gray">#E3E5E5</color>
     <color name="transaction_brown">#351616</color>
     <color name="transaction_rent">#836F6F</color>
@@ -40,6 +43,7 @@
     <color name="red">#FF0000</color>
     <color name="light_red">#FF5E69</color>
     <color name="green">#45FF00</color>
+    <color name="greens">#1A6100</color>
     <color name="income">#00A86B</color>
     <color name="light_green">#00A86B</color>
     <color name="text_green">#A1DEC8</color>

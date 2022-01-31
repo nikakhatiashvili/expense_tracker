@@ -75,7 +75,6 @@ class IncomeFragment:Fragment() {
             entries.add(PieEntry(passive.toFloat(), "passive income"))
             colors.add(resources.getColor(R.color.transaction_blue))
         }
-
         val piedataset = PieDataSet(entries,"transaction chart")
         val data = PieData(piedataset)
         piedataset.colors = colors

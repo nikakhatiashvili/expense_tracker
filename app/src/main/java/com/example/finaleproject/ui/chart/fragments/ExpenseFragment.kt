@@ -107,23 +107,23 @@ class ExpenseFragment : Fragment() {
         }
         if (shop.toInt() > 0){
             entries.add(PieEntry(shop, "shop"))
-            colors.add(resources.getColor(R.color.transaction_yellow))
+            colors.add(resources.getColor(R.color.transaction_darkyellow))
         }
         if (transport.toInt() > 0) {
             entries.add(PieEntry(transport, "transport"))
-            colors.add(resources.getColor(R.color.transaction_blue))
+            colors.add(resources.getColor(R.color.transaction_darkblue))
         }
         if (sub.toInt() > 0){
             entries.add(PieEntry(sub, "Subscription"))
-            colors.add(resources.getColor(R.color.transaction_pink))
+            colors.add(resources.getColor(R.color.transaction_pinks))
         }
         if (rent.toInt() > 0){
             entries.add(PieEntry(rent, "Rent"))
-            colors.add(resources.getColor(R.color.green))
+            colors.add(resources.getColor(R.color.transaction_brown))
         }
         if (health.toInt() > 0){
             entries.add(PieEntry(health, "Health"))
-            colors.add(resources.getColor(R.color.transaction_rent))
+            colors.add(resources.getColor(R.color.greens))
         }
         if (education.toInt() > 0){
             entries.add(PieEntry(education, "Education"))
