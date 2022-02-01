@@ -7,6 +7,7 @@ import com.example.finaleproject.repo.ExchangeRepository
 import com.example.finaleproject.util.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
@@ -41,6 +42,7 @@ class DashboardViewModel @Inject constructor(private val repository : ExchangeRe
             val data = withContext(Dispatchers.IO){
                 repository.convertedValue(amount,from,to)
             }
+           delay(200)
            moneys.emit(data.value!!)
         }
 

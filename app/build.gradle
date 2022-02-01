@@ -119,7 +119,7 @@ dependencies {
     // Declare the dependency for the Firebase SDK for Google Analytics
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
-
+    implementation 'androidx.core:core-splashscreen:1.0.0-alpha02'
 
     testImplementation 'com.google.truth:truth:1.1.2'
 

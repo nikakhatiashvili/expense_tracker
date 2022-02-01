@@ -44,4 +44,9 @@ class ProfileFragment: Fragment() {
             findNavController().navigate(R.id.action_profileFragment_to_transactionsFragment)
         }
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

@@ -139,4 +139,9 @@ class ExpenseFragment : Fragment() {
         pieChart.animateY(1000)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

@@ -63,15 +63,15 @@ class IncomeFragment:Fragment() {
         val colors : MutableList<Int> = ArrayList()
         val entries: MutableList<PieEntry> = ArrayList()
         val pieChart = binding.piechart
-        if (salary.toInt() > 0){
+        if (salary > 0){
             entries.add(PieEntry(salary.toFloat(), "Salary"))
             colors.add(resources.getColor(R.color.transaction_green))
         }
-        if (gift.toInt() > 0){
+        if (gift > 0){
             entries.add(PieEntry(gift.toFloat(), "gift"))
             colors.add(resources.getColor(R.color.transaction_pink))
         }
-        if (passive.toInt() > 0){
+        if (passive > 0){
             entries.add(PieEntry(passive.toFloat(), "passive income"))
             colors.add(resources.getColor(R.color.transaction_blue))
         }
@@ -83,5 +83,10 @@ class IncomeFragment:Fragment() {
         pieChart.holeRadius = 5f
         pieChart.setBackgroundColor(resources.getColor(R.color.background))
         pieChart.animateY(1000)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

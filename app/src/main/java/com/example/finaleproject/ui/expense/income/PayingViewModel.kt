@@ -30,10 +30,10 @@ class PayingViewModel @Inject constructor(private val repository : DatabaseRepos
     suspend fun saveTransaction(transaction: Transaction){
         _isLoading.emit(repository.saveTransaction(transaction))
     }
-    suspend fun saveExpense(expense: pieChartExpense){
+     fun saveExpense(expense: pieChartExpense){
         repository.saveExpense(expense)
     }
-    suspend fun saveIncome(expense: pieChartIncome){
+     fun saveIncome(expense: pieChartIncome){
         repository.saveIncome(expense)
     }
 

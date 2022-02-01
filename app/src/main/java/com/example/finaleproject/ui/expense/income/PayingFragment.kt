@@ -112,9 +112,10 @@ class PayingFragment : Fragment() {
     private fun setListeners(){
         binding.continueBtn.setOnClickListener {
             val amount = binding.amountEt.text.toString()
-            val description = binding.description.editText?.text.toString()
+            var description = binding.description.editText?.text.toString()
             val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
             val currentDate = sdf.format(Date())
+
             if (UIHelper.checkStrings(amount, description,secondValue)){
                 if(binding.spinnerCategoryExpense.isVisible){
                     if(money?.toInt()?.minus(amount.toInt())!! > 0 || money?.toInt()?.minus(amount.toInt()) == 0 ){

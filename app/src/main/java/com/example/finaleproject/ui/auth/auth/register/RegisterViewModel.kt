@@ -11,26 +11,30 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RegisterViewModel @Inject constructor(private val repository: DatabaseRepository):ViewModel() {
+class RegisterViewModel @Inject constructor(private val repository: DatabaseRepository) :
+    ViewModel() {
 
     val registerFlow = MutableSharedFlow<Resource<Boolean>>()
-    fun addMoney(){
+    fun addMoney() {
         repository.addDefaultMoney()
     }
-    fun register(email:String, password:String){
+
+    fun register(email: String, password: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val res = repository.register().createUserWithEmailAndPassword(email,password).addOnCompleteListener {
-                if (it.isSuccessful){
-                    viewModelScope.launch {
-                        registerFlow.emit(Resource.Success(true))
-                    }
-                }else{
-                    viewModelScope.launch {
-                    registerFlow.emit(Resource.Error(it.exception?.message.toString()))
+            val res = repository.register().createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        viewModelScope.launch {
+                            registerFlow.emit(Resource.Success(true))
+                            repository.signOut().signOut()
+                        }
+                    } else {
+                        viewModelScope.launch {
+                            registerFlow.emit(Resource.Error(it.exception?.message.toString()))
+                        }
                     }
                 }
-            }
-            }
         }
     }
+}
 
