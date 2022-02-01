@@ -115,8 +115,7 @@ class PayingFragment : Fragment() {
             var description = binding.description.editText?.text.toString()
             val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
             val currentDate = sdf.format(Date())
-
-            if (UIHelper.checkStrings(amount, description,secondValue)){
+            if (!amount.isNullOrEmpty() && !secondValue.isNullOrEmpty()){
                 if(binding.spinnerCategoryExpense.isVisible){
                     if(money?.toInt()?.minus(amount.toInt())!! > 0 || money?.toInt()?.minus(amount.toInt()) == 0 ){
                         val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,thirdValue,currentDate.toString())
@@ -137,6 +136,8 @@ class PayingFragment : Fragment() {
                     }
                     homeViewModel.increaseMoney(amount,money)
                 }
+            }else{
+                Toast.makeText(requireContext(),getString(R.string.amountorsecvalueisnull),Toast.LENGTH_SHORT).show()
             }
         }
         viewLifecycleOwner.lifecycleScope.launch {

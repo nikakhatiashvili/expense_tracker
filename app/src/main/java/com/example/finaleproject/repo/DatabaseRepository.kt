@@ -43,7 +43,8 @@ class DatabaseRepository @Inject constructor(private val databaseReference: Data
         return  firebaseAuth
     }
     fun resetPass(email:String){
-        firebaseAuth.sendPasswordResetEmail(email)
+         firebaseAuth.sendPasswordResetEmail(email)
+
     }
 
 

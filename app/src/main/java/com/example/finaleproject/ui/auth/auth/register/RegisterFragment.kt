@@ -56,10 +56,18 @@ class RegisterFragment : Fragment() {
         binding.signUpBtn.setOnClickListener {
             val email = binding.emailEtSignUp.editText?.text.toString()
             val pass = binding.passwordEtSignUp.editText?.text.toString()
-            val name = binding.nameEtSignUp.editText?.text.toString()
-            if (UIHelper.checkStrings(name, pass, email)) {
-                viewModel.register(email,pass)
+            val pass2 = binding.passwordEtSignUpTwo.editText?.text.toString()
+            if(pass == pass2){
+                if (UIHelper.checkStrings(pass2, pass, email)) {
+                    viewModel.register(email,pass)
+                }else{
+                    Toast.makeText(requireContext(),"passwords dont match",Toast.LENGTH_SHORT).show()
+                }
+            }else{
+                Toast.makeText(requireContext(),"passwords dont match",Toast.LENGTH_SHORT).show()
             }
+
+
         }
         viewLifecycleOwner.lifecycleScope.launch {
             viewModel.registerFlow.collect{

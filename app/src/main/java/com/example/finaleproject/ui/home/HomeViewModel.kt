@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -28,6 +29,8 @@ class HomeViewModel @Inject constructor(private val repository: DatabaseReposito
     val moneys  = MutableStateFlow<String>("")
 
     val _loggedIn  = MutableStateFlow<Boolean>(false)
+
+
     val test= 0
 
 
@@ -118,6 +121,7 @@ class HomeViewModel @Inject constructor(private val repository: DatabaseReposito
     }
     fun resetPass(email:String){
         repository.resetPass(email)
+
     }
 
     suspend fun signOut(){

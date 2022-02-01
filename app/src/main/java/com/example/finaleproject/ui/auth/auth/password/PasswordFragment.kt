@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.finaleproject.R
 import com.example.finaleproject.databinding.FragmentPasswordBinding
 import com.example.finaleproject.ui.home.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -31,12 +32,11 @@ class PasswordFragment : Fragment() {
         binding.continueReset.setOnClickListener {
             val email = binding.emailEtReset.editText?.text.toString()
             if (email.isNullOrEmpty()){
-                Toast.makeText(activity,"email is either empty or badly formatted",Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity,getString(R.string.emailBadlyFormatted),Toast.LENGTH_SHORT).show()
             }else{
                 viewModel.resetPass(email)
-                Toast.makeText(activity,"reset link is send to your email",Toast.LENGTH_SHORT).show()
+                 Toast.makeText(activity,getString(R.string.resetemail),Toast.LENGTH_SHORT).show()
             }
-
         }
     }
 }
