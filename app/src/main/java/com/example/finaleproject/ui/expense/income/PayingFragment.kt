@@ -118,6 +118,7 @@ class PayingFragment : Fragment() {
             if (!amount.isNullOrEmpty() && !secondValue.isNullOrEmpty()){
                 if(binding.spinnerCategoryExpense.isVisible){
                     if(money?.toInt()?.minus(amount.toInt())!! > 0 || money?.toInt()?.minus(amount.toInt()) == 0 ){
+                        amount.toString().trim{ it <= ' '}
                         val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,thirdValue,currentDate.toString())
                         val expense = pieChartExpense(amount.toInt(),thirdValue)
                         viewLifecycleOwner.lifecycleScope.launch {
@@ -128,6 +129,7 @@ class PayingFragment : Fragment() {
                         homeViewModel.changeMoney(amount,money)
                     }
                 }else{
+                    amount.toString().trim{ it <= ' '}
                     val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,secondValue,currentDate.toString())
                     viewLifecycleOwner.lifecycleScope.launch {
                         homeViewModel.saveTransaction(transaction)
