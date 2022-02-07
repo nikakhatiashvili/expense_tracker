@@ -18,6 +18,10 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+
+
+
+
 @AndroidEntryPoint
 class DashboardFragment : Fragment() {
 
@@ -81,7 +85,9 @@ class DashboardFragment : Fragment() {
                     val selected = p0?.getItemAtPosition(p2).toString()
                      firstValue = selected
                     if (!amountEt.text.isNullOrEmpty()){
-                        dashboardViewModel.convertValue(amountEt.text.toString().toDouble(),firstValue,secondValue)
+                        if (checkZero(amountEt.text.toString())){
+                            dashboardViewModel.convertValue(amountEt.text.toString().toDouble(),firstValue,secondValue)
+                        }
                     }
                 }
                 override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -92,7 +98,9 @@ class DashboardFragment : Fragment() {
                     val selected = p0?.getItemAtPosition(p2).toString()
                     secondValue = selected
                     if (!amountEt.text.isNullOrEmpty()){
-                        dashboardViewModel.convertValue(amountEt.text.toString().toDouble(),firstValue,secondValue)
+                        if (checkZero(amountEt.text.toString())){
+                            dashboardViewModel.convertValue(amountEt.text.toString().toDouble(),firstValue,secondValue)
+                        }
                     }
                 }
                 override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -101,16 +109,15 @@ class DashboardFragment : Fragment() {
             amountEt.doAfterTextChanged {
                 if (amountEt.text.toString() != "0" && !binding.amountEt.text.isNullOrEmpty()){
                     val amount = amountEt.text.toString().toDouble()
-                    dashboardViewModel.convertValue(amount,firstValue,secondValue)
+                    if (checkZero(amountEt.text.toString())){
+                        dashboardViewModel.convertValue(amount,firstValue,secondValue)
+                    }
                 }
             }
-//            appCompatButton.setOnClickListener {
-//                val spinner1Index = binding.spinner.selectedItemPosition
-//                spinner.setSelection(binding.spinnerto.selectedItemPosition)
-//                binding.spinnerto.setSelection(spinner1Index)
-//            }
+
         }
     }
+    fun checkZero(string:String)= string.first().toString() != "0"
 
 
     override fun onDestroyView() {
