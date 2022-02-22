@@ -54,7 +54,7 @@ class ExchangeAdapter() : RecyclerView.Adapter<ExchangeAdapter.ViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
         private lateinit var currentData: CommercialRates
         fun bind() {
-            currentData = data[absoluteAdapterPosition]
+            currentData = data[adapterPosition]
             binding.buyPrice.text = currentData.buy.gellString()
             binding.sellPrice.text = currentData.sell.gellString()
             binding.name.text = currentData.currency

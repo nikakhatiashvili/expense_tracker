@@ -67,7 +67,7 @@ class TransactionAdapter:RecyclerView.Adapter<TransactionAdapter.ViewHolder>() {
         private lateinit var currentData: Transaction
         @RequiresApi(Build.VERSION_CODES.M)
         fun bind() {
-            currentData = data[absoluteAdapterPosition]
+            currentData = data[adapterPosition]
             setImages(binding.coinsItemImageView,currentData.transaction_Category!!)
             binding.coinsItemDescriptionTXTView.text = currentData.description
             binding.transactionItemNameTextView.text = currentData.transaction_Category

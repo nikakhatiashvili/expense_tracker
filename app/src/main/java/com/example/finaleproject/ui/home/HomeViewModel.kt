@@ -26,7 +26,7 @@ class HomeViewModel @Inject constructor(private val repository: DatabaseReposito
     val expenseResponse = MutableStateFlow<List<pieChartExpense>>(emptyList())
     val incomeResponse = MutableStateFlow<List<pieChartIncome>>(emptyList())
 
-    val moneys  = MutableStateFlow<String>("")
+    val moneys  = MutableStateFlow<String>("0")
 
     val _loggedIn  = MutableStateFlow<Boolean>(false)
 

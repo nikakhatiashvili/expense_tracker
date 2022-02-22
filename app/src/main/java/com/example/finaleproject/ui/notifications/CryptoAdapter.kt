@@ -43,7 +43,7 @@ class CryptoAdapter(val listener:ClickListener):RecyclerView.Adapter<CryptoAdapt
         @SuppressLint("ResourceAsColor")
         fun bind(){
             binding.root.setOnClickListener(this)
-            currentData = data[absoluteAdapterPosition]
+            currentData = data[adapterPosition]
             Glide.with(itemView.context).load(currentData.image).into(binding.coinsItemImageView)
 
             binding.coinsItemSymbolTextView.text = currentData.symbol

@@ -22,7 +22,6 @@ import kotlinx.coroutines.launch
 class BottomFragment : Fragment() {
     private val viewModel:HomeViewModel by activityViewModels()
     private var _binding: FragmentBottomBinding? = null
-    private var money:String? = null
     private val binding get() = _binding!!
 
 

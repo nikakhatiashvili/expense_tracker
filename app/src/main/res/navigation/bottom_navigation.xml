@@ -47,7 +47,7 @@
             app:destination="@id/passwordFragment2" />
         <action
             android:id="@+id/action_profileFragment_to_mobile_navigation"
-            app:popUpTo="@id/profileFragment"
+            app:popUpTo="@id/bottom_navigation"
             app:popUpToInclusive="true"
             app:destination="@id/mobile_navigation" />
         <action
