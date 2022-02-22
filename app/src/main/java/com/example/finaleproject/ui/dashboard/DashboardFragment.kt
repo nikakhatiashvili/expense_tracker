@@ -86,7 +86,11 @@ class DashboardFragment : Fragment() {
                      firstValue = selected
                     if (!amountEt.text.isNullOrEmpty()){
                         if (checkZero(amountEt.text.toString())){
-                            dashboardViewModel.convertValue(amountEt.text.toString().toDouble(),firstValue,secondValue)
+                            if (!dashboardViewModel.containsError(amountEt.text.toString()) ){
+                                    dashboardViewModel.convertValue(
+                                        amountEt.text.toString().toDouble(), firstValue, secondValue
+                                    )
+                                }
                         }
                     }
                 }
@@ -99,7 +103,9 @@ class DashboardFragment : Fragment() {
                     secondValue = selected
                     if (!amountEt.text.isNullOrEmpty()){
                         if (checkZero(amountEt.text.toString())){
-                            dashboardViewModel.convertValue(amountEt.text.toString().toDouble(),firstValue,secondValue)
+                            if(!dashboardViewModel.containsError(amountEt.text.toString()) ){
+                                dashboardViewModel.convertValue(amountEt.text.toString().toDouble(),firstValue,secondValue)
+                            }
                         }
                     }
                 }
@@ -110,7 +116,9 @@ class DashboardFragment : Fragment() {
                 if (amountEt.text.toString() != "0" && !binding.amountEt.text.isNullOrEmpty()){
                     val amount = amountEt.text.toString().toDouble()
                     if (checkZero(amountEt.text.toString())){
-                        dashboardViewModel.convertValue(amount,firstValue,secondValue)
+                        if(!dashboardViewModel.containsError(amountEt.text.toString())){
+                            dashboardViewModel.convertValue(amount,firstValue,secondValue)
+                        }
                     }
                 }
             }

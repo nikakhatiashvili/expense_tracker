@@ -127,6 +127,8 @@ class PayingFragment : Fragment() {
 
                         }
                         homeViewModel.changeMoney(amount,money)
+                    }else{
+                        Toast.makeText(requireContext(),getString(R.string.notenough),Toast.LENGTH_SHORT).show()
                     }
                 }else{
                     amount.toString().trim{ it <= ' '}

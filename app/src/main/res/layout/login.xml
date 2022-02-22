@@ -46,7 +46,6 @@
             android:maxEms="1"
             android:maxLines="1"
             android:singleLine="true" />
-
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout

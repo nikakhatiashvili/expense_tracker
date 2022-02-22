@@ -42,10 +42,13 @@
     <string name="income_chart">income chart</string>
     <string name="repeat_password">repeat password</string>
     <string name="amountorsecvalueisnull">amount is empty</string>
+    <string name="notenough">not enough money</string>
     <string name="resetProblem">There was a problem sending link to your email</string>
     <string name="reserSucces">reset link is send to your email</string>
     <string name="emailBadlyFormatted">email is either empty or badly formatted</string>
     <string name="resetemail">reset email is sent</string>
+    <string name="emailisnotvalid">email is not valid</string>
+
 
     <string-array name="currency">
         <item >GEL</item>
