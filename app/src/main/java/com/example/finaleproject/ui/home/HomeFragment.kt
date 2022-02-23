@@ -28,8 +28,7 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
         bind()
@@ -65,6 +64,7 @@ class HomeFragment : Fragment() {
                 income = 0
                 expense = 0
                 adapter.data = it.asReversed()
+                binding.transactionRecyclerview.startLayoutAnimation()
                 if(adapter.data.isEmpty()){
                     binding.textView18.visibility = View.VISIBLE
                 }else{

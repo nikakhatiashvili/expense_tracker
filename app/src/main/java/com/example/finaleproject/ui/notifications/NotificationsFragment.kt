@@ -27,7 +27,7 @@ class NotificationsFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
         bind()
@@ -52,6 +52,7 @@ class NotificationsFragment : Fragment() {
                 when(it){
                     is ApiState.Success ->{
                         adapter.data = it.data
+                        binding.recyclerview.startLayoutAnimation()
                         binding.spinKit.visibility = View.GONE
                     }
                     is ApiState.Loading ->{

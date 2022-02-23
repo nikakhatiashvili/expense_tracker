@@ -39,7 +39,7 @@ class TransactionsFragment: Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = TransactionsBinding.inflate(inflater, container, false)
         val root: View = binding.root
         bind()
@@ -53,6 +53,7 @@ class TransactionsFragment: Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             homeViewModel.exchangeResponse.collect{
                 adapter.data = it.asReversed()
+                binding.recyclerview.startLayoutAnimation()
                 if(adapter.data.isEmpty()){
                     binding.textView18.visibility = View.VISIBLE
                 }else{

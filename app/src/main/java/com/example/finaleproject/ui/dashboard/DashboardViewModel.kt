@@ -17,7 +17,7 @@ class DashboardViewModel @Inject constructor(private val repository : ExchangeRe
 
 
 
-    private val listOfCharacter = mutableListOf<Char>(',', ' ', '-')
+    private val listOfCharacter = mutableListOf<Char>(',', '.', '-')
     private var searchJob: Job? = null
     val moneys  = MutableSharedFlow<Double>()
 

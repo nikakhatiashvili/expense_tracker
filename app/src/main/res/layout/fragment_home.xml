@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
     android:background="@color/background"
     android:layout_width="fill_parent"
@@ -27,13 +26,14 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.501">
+        app:layout_constraintVertical_bias="0.501"
+        android:focusable="true">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:text="Income"
+            android:text="@string/income"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:text="$0"
+            android:text="@string/_0"
             android:layout_marginTop="23dp"
             android:textColor="@color/white"
             android:textSize="18sp" />
@@ -56,7 +56,8 @@
             android:src="@drawable/ic__6405049131582960209"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/todo" />
 
     </androidx.cardview.widget.CardView>
 
@@ -76,13 +77,14 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.501">
+        app:layout_constraintVertical_bias="0.501"
+        android:focusable="true">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="60dp"
-            android:text="Expense"
+            android:text="@string/expense"
             android:textColor="@color/white"
             android:textSize="18sp" />
 
@@ -94,7 +96,7 @@
             android:layout_marginTop="23dp"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:text="$0" />
+            android:text="@string/_0" />
 
 
         <ImageButton
@@ -115,7 +117,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:text="$0"
+        android:text="@string/_0"
         android:textSize="32sp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -140,7 +142,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="4dp"
-        android:text="Transactions history"
+        android:text="@string/transactions_history"
         android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/transaction_recyclerview"
@@ -164,6 +166,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="360dp"
+        android:layoutAnimation="@anim/ani"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -177,7 +180,7 @@
         android:layout_marginBottom="10dp"
         android:layout_height="wrap_content"
         android:background="@drawable/morebtn"
-        android:text="see more"
+        android:text="@string/see_more"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

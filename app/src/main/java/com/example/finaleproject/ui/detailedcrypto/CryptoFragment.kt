@@ -45,7 +45,7 @@ class CryptoFragment : Fragment() {
         val data = arguments?.getParcelable<CryptoItem>("ability")
         d("crypto",data?.id.toString())
         viewModel.historicalData(data?.id)
-        Glide.with(context!!).load(data?.image).into(binding.imageView)
+        Glide.with(requireContext()).load(data?.image).into(binding.imageView)
 //        binding.textView7.text = data?.name
         binding.coinItemNameTextView.text = data?.name
         binding.coinItemSymbolTextView.text = data?.symbol

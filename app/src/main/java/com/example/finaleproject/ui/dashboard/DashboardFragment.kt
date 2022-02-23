@@ -35,7 +35,7 @@ class DashboardFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
         bind()
@@ -56,6 +56,7 @@ class DashboardFragment : Fragment() {
                     is Resource.Success -> {
                         binding.spinKit.visibility = View.GONE
                         adapter.data = it.data!!
+                        binding.recyclerview.startLayoutAnimation()
                     }
                 }
             }
@@ -74,7 +75,6 @@ class DashboardFragment : Fragment() {
 
     private fun setArrayAdapters(){
         val clear = ArrayAdapter(requireContext(),R.layout.textview,resources.getStringArray(R.array.clear))
-
         val currency = resources.getStringArray(R.array.currency)
         ArrayAdapter(requireContext(),R.layout.textview,currency)
         var firstValue = "USD"
@@ -114,15 +114,14 @@ class DashboardFragment : Fragment() {
             }
             amountEt.doAfterTextChanged {
                 if (amountEt.text.toString() != "0" && !binding.amountEt.text.isNullOrEmpty()){
-                    val amount = amountEt.text.toString().toDouble()
                     if (checkZero(amountEt.text.toString())){
                         if(!dashboardViewModel.containsError(amountEt.text.toString())){
+                            val amount = amountEt.text.toString().toDouble()
                             dashboardViewModel.convertValue(amount,firstValue,secondValue)
                         }
                     }
                 }
             }
-
         }
     }
     fun checkZero(string:String)= string.first().toString() != "0"

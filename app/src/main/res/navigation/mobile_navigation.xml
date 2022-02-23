@@ -80,11 +80,19 @@
         tools:layout="@layout/fragment_bottom" >
         <action
             android:id="@+id/action_bottomFragment_to_payingFragment2"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             app:destination="@id/payingFragment2" />
         <action
             android:id="@+id/action_bottomFragment_to_loginFragment"
             app:popUpTo="@+id/bottomFragment"
             app:popUpToInclusive="true"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_right"
             app:destination="@id/loginFragment" />
     </fragment>
     <fragment
