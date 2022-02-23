@@ -1,41 +1,44 @@
 
-Screenshots  
-
-![Screenshot 2022-01-26 122437](https://user-images.githubusercontent.com/75098057/151131086-3573d7b7-942a-49c9-9684-227c93712e50.png)
-![Screenshot 2022-01-26 123144](https://user-images.githubusercontent.com/75098057/151131189-2a506419-990b-485a-a991-7afbff7dba0b.png)
-![Screenshot 2022-01-27 183847](https://user-images.githubusercontent.com/75098057/151381057-0b2e6168-188d-4640-972d-03bfa4b804b2.png)
-![Screenshot 2022-01-27 183621](https://user-images.githubusercontent.com/75098057/151381137-da6967d9-2ad4-483c-a281-763f86cb6ba0.png)
-![Screenshot 2022-01-26 121456](https://user-images.githubusercontent.com/75098057/151131249-75968522-0378-432d-a730-6671457d0870.png)
-![Screenshot 2022-01-26 121603](https://user-images.githubusercontent.com/75098057/151131253-2723dcdd-f9d4-4717-be1b-38a124926646.png)
-![Screenshot 2022-01-27 183636](https://user-images.githubusercontent.com/75098057/151381321-613975a4-1c9f-4742-9f7e-33c76448e8db.png)
-![Screenshot 2022-01-27 184338](https://user-images.githubusercontent.com/75098057/151381516-17e8a691-eaf7-464d-8987-02e45a0076f7.png)
-![Screenshot 2022-01-27 183948](https://user-images.githubusercontent.com/75098057/151381637-c9a99a2c-11a1-4d4c-9b81-0918682e6bd2.png)
-![Screenshot (206)](https://user-images.githubusercontent.com/75098057/151771401-b077c052-4dec-4c46-9d89-535705e1f3b4.png)
-![Screenshot (208)](https://user-images.githubusercontent.com/75098057/151771711-004a7db7-9d5f-4d14-bf59-0bf5f2cedbf3.png)
-![Screenshot 2022-01-26 121621](https://user-images.githubusercontent.com/75098057/151131261-133ca57d-0fb1-4a1a-bff6-9cb0723fe39e.png)
 
 
-Architecture MVVM  is the design pattern used for making this app. MVVM provides a clear separation of concern and has great support in Android SDK in the form of Architecture Components.
+https://user-images.githubusercontent.com/75098057/155376886-e5a2c085-97bd-47ce-a31f-4a576044006b.mp4
 
-Libraries Used
 
-Architecture - A collection of libraries that help you design robust, testable, and maintainable apps
 
-  ViewModel - Store UI-related data that isn't destroyed on app rotations. Easily schedule asynchronous tasks for optimal execution.
-	
-  Hilt - For Dependeny Injection
-	
- Jetpack Navigation - Handle everything needed for in-app navigation.
-	
+# Expense Tracker
 
-Third party
+In expense tracker you can manage your money, see real time  cryptocurrency information and exchange rates with currency converter
 
-  Glide for image loading
-	
-  Firebase for authentication and storing user transactions
-	
-  Kotlin Coroutines for managing background threads with simplified code and reducing needs for callbacks 
-	
-  MPAndroidChart to chart the financial data
-	
-  Retrofit for making HTTP requests
+
+
+## Architecture
+Architecture MVVM is the design pattern used for making this app. MVVM provides a clear separation of concern and has great support in Android SDK in the form of Architecture Components.
+
+
+## Libraries Used
+
+Expense tracker uses a number of Libraries to work properly:
+
+- [Hilt] - dependency injector for replacement all Factory classes.
+- [navigation] - helps you implement navigation, from simple button clicks to more complex patterns, such as app bars and the navigation drawer.
+- [Splash screen] - This API enables a new app launch animation for all apps when running on a device with Android 12 or higher.
+- [Coroutines] - managing background threads with simplified code and reducing needs for callbacks.
+- [Coroutine Flow] - cold asynchronous data stream that sequentially emits values and completes normally or with an exception
+- [Retrofit] - type-safe HTTP client
+- [Glide] - image loading and caching library
+- [Firebase] - for authentication and storing user transactions
+- [MPAndroidChart] - to chart the financial data
+- [ViewModel] - designed to store and manage UI-related data in a lifecycle conscious way. The ViewModel class allows data to survive configuration changes such as screen rotations.
+
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+
+   [hilt]: <https://dagger.dev/>
+   [navigation]: <https://developer.android.com/guide/navigation>
+   [Splash screen]: <https://developer.android.com/guide/topics/ui/splash-screen>
+   [Coroutines]: <https://kotlinlang.org/docs/coroutines-overview.html>
+   [Coroutine Flow]: <https://kotlinlang.org/docs/coroutines-overview.html>
+   [Retrofit]: <https://square.github.io/retrofit/>
+   [Glide]: <https://github.com/bumptech/glide>
+   [Firebase]: <https://firebase.google.com/?gclid=Cj0KCQiA09eQBhCxARIsAAYRiym98fipKMPtMjRC9bkq8l2p--4I0pqWde250_bu86IQNh3LRb_9a7saAtMNEALw_wcB&gclsrc=aw.ds>
+   [MPAndroidChart]: <https://github.com/PhilJay/MPAndroidChart>
+   [ViewModel]: <https://developer.android.com/topic/libraries/architecture/viewmodel>
