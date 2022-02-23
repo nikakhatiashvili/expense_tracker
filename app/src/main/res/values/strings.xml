@@ -48,6 +48,16 @@
     <string name="emailBadlyFormatted">email is either empty or badly formatted</string>
     <string name="resetemail">reset email is sent</string>
     <string name="emailisnotvalid">email is not valid</string>
+    <string name="income">Income</string>
+    <string name="_0">$0</string>
+    <string name="todo">TODO</string>
+    <string name="expense">Expense</string>
+
+    <string name="transactions_history">Transactions history</string>
+    <string name="see_more">see more</string>
+    <string name="sell">sell</string>
+    <string name="buy">buy</string>
+    <string name="amount">Amount</string>
 
 
     <string-array name="currency">

@@ -11,6 +11,7 @@ import com.example.finaleproject.listener.ClickListener
 import com.example.finaleproject.model.CryptoItem
 import com.example.finaleproject.util.UIHelper
 import com.example.finaleproject.util.dollarString
+import com.example.finaleproject.util.smalldollarString
 
 class CryptoAdapter(val listener:ClickListener):RecyclerView.Adapter<CryptoAdapter.ViewHolder>() {
 
@@ -47,7 +48,12 @@ class CryptoAdapter(val listener:ClickListener):RecyclerView.Adapter<CryptoAdapt
             Glide.with(itemView.context).load(currentData.image).into(binding.coinsItemImageView)
 
             binding.coinsItemSymbolTextView.text = currentData.symbol
-            binding.coinsItemPriceTextView.text = currentData.current_price.dollarString()
+            if(currentData.current_price.toString().first().toString() == "0"){
+                binding.coinsItemPriceTextView.text = currentData.current_price.smalldollarString()
+            }else{
+                binding.coinsItemPriceTextView.text = currentData.current_price.dollarString()
+            }
+
             binding.coinsItemNameTextView.text = currentData.name
 
             UIHelper.showChangePercent(binding.coinsItemChangeTextView,currentData.price_change_percentage_24h)

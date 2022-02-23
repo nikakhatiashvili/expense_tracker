@@ -55,8 +55,10 @@ class CryptoFragment : Fragment() {
             viewModel.cryptoHistorical.collect{
                 when(it){
                     is Resource.Success -> {
-                        ChartHelper.displayHistoricalLineChart(binding.lineChart.lineChart, data?.symbol.toString(), it.data!!)
-                        binding.coinListLoading.visibility = View.GONE
+                        if(it.data!!.size > 10){
+                            ChartHelper.displayHistoricalLineChart(binding.lineChart.lineChart, data?.symbol.toString(), it.data!!)
+                            binding.coinListLoading.visibility = View.GONE
+                        }
                     }
                     is Resource.Error ->{
                         Toast.makeText(requireContext(),it.errorMessage, Toast.LENGTH_SHORT).show()
