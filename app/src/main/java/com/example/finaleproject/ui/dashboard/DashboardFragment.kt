@@ -44,6 +44,7 @@ class DashboardFragment : Fragment() {
 
     private fun bind(){
         adapter = ExchangeAdapter()
+        binding.somethingwrong.visibility = View.GONE
         binding.recyclerview.adapter = adapter
         binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
         dashboardViewModel.load()
@@ -54,9 +55,13 @@ class DashboardFragment : Fragment() {
                         binding.spinKit.visibility = View.VISIBLE
                     }
                     is Resource.Success -> {
+                        binding.somethingwrong.visibility = View.GONE
                         binding.spinKit.visibility = View.GONE
                         adapter.data = it.data!!
                         binding.recyclerview.startLayoutAnimation()
+                    }
+                    is Resource.Error -> {
+                        binding.somethingwrong.visibility = View.VISIBLE
                     }
                 }
             }

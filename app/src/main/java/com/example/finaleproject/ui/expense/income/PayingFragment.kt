@@ -116,31 +116,35 @@ class PayingFragment : Fragment() {
             val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss")
             val currentDate = sdf.format(Date())
             if (!amount.isNullOrEmpty() && !secondValue.isNullOrEmpty()){
-                if(binding.spinnerCategoryExpense.isVisible){
-                    if(money?.toInt()?.minus(amount.toInt())!! > 0 || money?.toInt()?.minus(amount.toInt()) == 0 ){
-                        amount.toString().trim{ it <= ' '}
-                        val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,thirdValue,currentDate.toString())
-                        val expense = pieChartExpense(amount.toInt(),thirdValue)
+                if (!homeViewModel.containsError(amount)){
+                    if(binding.spinnerCategoryExpense.isVisible){
+                        if(money?.toInt()?.minus(amount.toInt())!! > 0 || money?.toInt()?.minus(amount.toInt()) == 0 ){
+                            amount.toString().trim{ it <= ' '}
+                            val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,thirdValue,currentDate.toString())
+                            val expense = pieChartExpense(amount.toInt(),thirdValue)
+                            viewLifecycleOwner.lifecycleScope.launch {
+                                homeViewModel.saveTransaction(transaction)
+                                homeViewModel.saveExpense(expense)
+
+                            }
+                            homeViewModel.changeMoney(amount,money)
+                        }else{
+                            Toast.makeText(requireContext(),getString(R.string.notenough),Toast.LENGTH_SHORT).show()
+                        }
+                    }else{
+                        amount.trim{ it <= ' '}
+                        val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,secondValue,currentDate.toString())
                         viewLifecycleOwner.lifecycleScope.launch {
                             homeViewModel.saveTransaction(transaction)
-                            homeViewModel.saveExpense(expense)
-
+                            val income = pieChartIncome(amount.toInt(),secondValue)
+                            homeViewModel.saveIncome(income)
                         }
-                        homeViewModel.changeMoney(amount,money)
-                    }else{
-                        Toast.makeText(requireContext(),getString(R.string.notenough),Toast.LENGTH_SHORT).show()
+                        homeViewModel.increaseMoney(amount,money)
                     }
                 }else{
-                    amount.toString().trim{ it <= ' '}
-                    val transaction = com.example.finaleproject.model.transaction.Transaction(amount.toDouble(),firstValue,description,secondValue,currentDate.toString())
-                    viewLifecycleOwner.lifecycleScope.launch {
-                        homeViewModel.saveTransaction(transaction)
-                        val income = pieChartIncome(amount.toInt(),secondValue)
-                        homeViewModel.saveIncome(income)
-                    }
-                    homeViewModel.increaseMoney(amount,money)
+                    Toast.makeText(requireContext(),getString(R.string.amountbadlyformated),Toast.LENGTH_SHORT).show()
                 }
-            }else{
+                }else{
                 Toast.makeText(requireContext(),getString(R.string.amountorsecvalueisnull),Toast.LENGTH_SHORT).show()
             }
         }

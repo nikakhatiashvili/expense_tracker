@@ -23,7 +23,7 @@ class PayingViewModel @Inject constructor(private val repository : DatabaseRepos
 
 //    protected val _isLoading = MutableLiveData<Boolean>()
 //    val isLoading: LiveData<Boolean> = _isLoading
-
+private val listOfCharacter = mutableListOf<Char>(',', '.', '-')
     val _isLoading  = MutableSharedFlow<Boolean>()
     val moneys  = MutableStateFlow<String>("")
 
@@ -53,6 +53,16 @@ class PayingViewModel @Inject constructor(private val repository : DatabaseRepos
 
             })
         }
+    }
+    fun containsError(double: String): Boolean {
+        var result = false
+        Log.d("sadasda", double)
+        for (i in double.indices) {
+            if (listOfCharacter.contains(double[i])) {
+                result = true
+            }
+        }
+        return result
     }
 
     fun changeMoney(amount: String, money: String?) {
